@@ -1,0 +1,25 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+h2 {
+  color: #333;
+}
+
+input, textarea {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#cv {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

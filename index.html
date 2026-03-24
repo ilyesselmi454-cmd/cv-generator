@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CV Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<body>
+
+<h2>Mon CV</h2>
+
+<input type="text" id="name" placeholder="Ton nom">
+<br><br>
+
+<textarea id="bio" placeholder="Description"></textarea>
+
+<hr>
+
+<div id="cv">
+  <h1 id="cv-name"></h1>
+  <p id="cv-bio"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<input type="file" id="photo">
+<button onclick="downloadPDF()">Télécharger PDF</button>
+
