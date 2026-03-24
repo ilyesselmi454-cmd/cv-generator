@@ -23,3 +23,18 @@ input, textarea {
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+body {
+  font-family: Arial;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  text-align: center;
+}
+
+#cv {
+  background: white;
+  color: black;
+  border-radius: 15px;
+  padding: 20px;
+  width: 60%;
+  margin: auto;
+}
