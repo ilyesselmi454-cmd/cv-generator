@@ -1,29 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>CV Generator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<title>CV PRO</title>
+
+<link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
 <body>
 
-<h2>Mon CV</h2>
+<div class="container">
+  <h1>CV Generator PRO</h1>
 
-<input type="text" id="name" placeholder="Ton nom">
-<br><br>
+  <input type="text" id="name" placeholder="Nom">
+  <input type="text" id="job" placeholder="Métier">
+  <textarea id="desc" placeholder="Profil"></textarea>
+  <input type="text" id="skills" placeholder="Compétences (ex: HTML, CSS, JS)">
+  <input type="text" id="exp" placeholder="Expérience">
+  <input type="file" id="photo" accept="image/*">
 
-<textarea id="bio" placeholder="Description"></textarea>
+  <button onclick="generate()">Générer</button>
+  <button onclick="downloadPDF()">Télécharger PDF</button>
 
-<hr>
+  <!-- CV -->
+  <div class="cv" id="cv">
+    
+    <!-- LEFT -->
+    <div class="left">
+      <img id="pimage">
 
-<div id="cv">
-  <h1 id="cv-name"></h1>
-  <p id="cv-bio"></p>
+      <h2 id="pname">Nom</h2>
+      <p id="pjob">Métier</p>
+
+      <h3>Compétences</h3>
+      <div id="pskills"></div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <h3>Profil</h3>
+      <p id="pdesc"></p>
+
+      <h3>Expérience</h3>
+      <p id="pexp"></p>
+    </div>
+
+  </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-<input type="file" id="photo">
-<button onclick="downloadPDF()">Télécharger PDF</button>
 

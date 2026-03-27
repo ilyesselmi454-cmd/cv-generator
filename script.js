@@ -1,24 +1,53 @@
-document.getElementById("name").addEventListener("input", function() {
-  document.getElementById("cv-name").innerText = this.value;
-});
+function generate() {
+  let name = document.getElementById("name").value;
+  let job = document.getElementById("job").value;
+  let desc = document.getElementById("desc").value;
+  let skills = document.getElementById("skills").value.split(",");
+  let exp = document.getElementById("exp").value;
 
-document.getElementById("bio").addEventListener("input", function() {
-  document.getElementById("cv-bio").innerText = this.value;
-});
-document.getElementById("photo").addEventListener("change", function() {
-  const file = this.files[0];
-  const reader = new FileReader();
+  document.getElementById("pname").innerText = name;
+  document.getElementById("pjob").innerText = job;
+  document.getElementById("pdesc").innerText = desc;
+  document.getElementById("pexp").innerText = exp;
 
-  reader.onload = function() {
-    document.getElementById("cv-photo").src = reader.result;
-  };
+  let skillsContainer = document.getElementById("pskills");
+  skillsContainer.innerHTML = "";
 
-  reader.readAsDataURL(file);
-});
+  skills.forEach(skill => {
+    let div = document.createElement("div");
+    div.classList.add("skill");
+
+    div.innerHTML = `
+      ${skill}
+      <div class="skill-bar" style="width:${Math.random()*100}%"></div>
+    `;
+
+    skillsContainer.appendChild(div);
+  });
+
+  // PHOTO
+  let file = document.getElementById("photo").files[0];
+
+  if (file) {
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      let img = document.getElementById("pimage");
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
 function downloadPDF() {
-  const element = document.getElementById("cv");
+  let element = document.getElementById("cv");
 
-  html2pdf()
-    .from(element)
-    .save("mon-cv.pdf");
+  setTimeout(() => {
+    html2pdf().set({
+      margin: 0,
+      filename: 'cv-pro.pdf',
+      image: { type: 'jpeg', quality: 1 },
+      html2canvas: { scale: 3, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    }).from(element).save();
+  }, 500);
 }
