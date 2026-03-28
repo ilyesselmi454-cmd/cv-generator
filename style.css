@@ -14,6 +14,7 @@ input, textarea, select {
   width: 100%;
   margin: 5px 0;
   padding: 10px;
+  border: 1px solid #ccc;
 }
 
 button {
@@ -28,12 +29,15 @@ button {
 .cv {
   width: 210mm;
   min-height: 297mm;
+  border: 2px solid #ddd;
 }
 
+/* HEADER */
 .header {
   display: flex;
   gap: 15px;
   padding: 20px;
+  border-bottom: 3px solid orange;
 }
 
 .header img {
@@ -42,12 +46,28 @@ button {
   border-radius: 50%;
 }
 
+/* CONTENT */
 .content {
   display: flex;
 }
 
-.left { width: 60%; padding: 20px; }
-.right { width: 40%; padding: 20px; }
+.left {
+  width: 60%;
+  padding: 20px;
+}
+
+.right {
+  width: 40%;
+  padding: 20px;
+  border-left: 2px dashed #ccc;
+}
+
+/* SKILLS */
+.skill {
+  border: 1px solid #ddd;
+  margin: 5px 0;
+  padding: 5px;
+}
 
 .skill-bar {
   height: 6px;
@@ -59,10 +79,8 @@ button {
   background: orange;
 }
 
-/* TEMPLATES */
-.modern .header { background:#2a5298;color:white; }
-.dark { background:#222;color:white; }
-.dark .header { background:black; }
-.minimal .header { border-bottom:2px solid black; }
-.green .header { background:#2ecc71;color:white; }
-.purple .header { background:#8e44ad;color:white; }
+/* THEMES */
+.blue-theme .header { background:#2a5298;color:white; }
+.green-theme .header { background:#27ae60;color:white; }
+.pink-theme .header { background:#e84393;color:white; }
+.dark-theme { background:#222;color:white; }
