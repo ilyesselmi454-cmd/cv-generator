@@ -1,24 +1,18 @@
 function val(id){
-  let el = document.getElementById(id);
-  return el ? el.value : "";
+  return document.getElementById(id).value;
 }
 
 function set(id,value){
-  let el = document.getElementById(id);
-  if(el) el.innerText = value || "";
+  document.getElementById(id).innerText = value || "";
 }
 
 function generate(){
 
-  // TEXT
   set("pname", val("name"));
   set("pjob", val("job"));
-  set("pemail", val("email"));
-  set("pphone", val("phone"));
   set("pdesc", val("desc"));
   set("pexp", val("exp"));
 
-  // SKILLS
   let box = document.getElementById("pskills");
   box.innerHTML = "";
 
@@ -28,43 +22,33 @@ function generate(){
     if(skill.trim()){
       let level = Math.floor(Math.random()*40)+60;
 
-      let div = document.createElement("div");
-      div.className = "skill";
-
-      div.innerHTML = `
-        <p>${skill}</p>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:${level}%"></div>
+      box.innerHTML += `
+        <div class="skill">
+          <p>${skill}</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:${level}%"></div>
+          </div>
         </div>
       `;
-
-      box.appendChild(div);
     }
   });
 
-  // IMAGE (FIX IMPORTANT)
-  let fileInput = document.getElementById("photo");
-  let img = document.getElementById("pimage");
-
-  if(fileInput && fileInput.files && fileInput.files[0]){
+  // IMAGE
+  let file = document.getElementById("photo").files[0];
+  if(file){
     let reader = new FileReader();
     reader.onload = function(e){
-      img.src = e.target.result;
+      document.getElementById("pimage").src = e.target.result;
     };
-    reader.readAsDataURL(fileInput.files[0]);
+    reader.readAsDataURL(file);
   }
 }
 
 /* PDF */
 function downloadPDF(){
-
-  let element = document.getElementById("cv");
-
   html2pdf().set({
-    margin: 0,
-    filename: "cv.pdf",
-    image: { type: "jpeg", quality: 1 },
-    html2canvas: { scale: 3 },
-    jsPDF: { unit: "px", format: [794,1123] }
-  }).from(element).save();
+    margin:0,
+    html2canvas:{scale:3},
+    jsPDF:{unit:"px",format:[794,1123]}
+  }).from(document.getElementById("cv")).save();
 }

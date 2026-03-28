@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Builder</title>
+<title>CV Builder UI</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -11,16 +11,32 @@
 <body>
 
 <div class="container">
-  <h1>CV Builder</h1>
+  <h1>✨ CV Builder</h1>
 
-  <textarea id="name" placeholder="Nom"></textarea>
-  <textarea id="job" placeholder="Métier"></textarea>
-  <textarea id="email" placeholder="Email"></textarea>
-  <textarea id="phone" placeholder="Téléphone"></textarea>
+  <div class="input-group">
+    <input id="name" placeholder=" ">
+    <label>Nom</label>
+  </div>
 
-  <textarea id="desc" placeholder="Profil"></textarea>
-  <textarea id="skills" placeholder="Compétences (une par ligne)"></textarea>
-  <textarea id="exp" placeholder="Expérience"></textarea>
+  <div class="input-group">
+    <input id="job" placeholder=" ">
+    <label>Métier</label>
+  </div>
+
+  <div class="input-group">
+    <textarea id="desc" placeholder=" "></textarea>
+    <label>Profil</label>
+  </div>
+
+  <div class="input-group">
+    <textarea id="skills" placeholder=" "></textarea>
+    <label>Compétences (une par ligne)</label>
+  </div>
+
+  <div class="input-group">
+    <textarea id="exp" placeholder=" "></textarea>
+    <label>Expérience</label>
+  </div>
 
   <input type="file" id="photo">
 
@@ -34,8 +50,6 @@
       <img id="pimage">
       <h2 id="pname">Nom</h2>
       <p id="pjob"></p>
-      <p id="pemail"></p>
-      <p id="pphone"></p>
     </div>
 
     <div class="right">
