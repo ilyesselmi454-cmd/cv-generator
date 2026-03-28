@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
 <meta charset="UTF-8">
 <title>CV Generator by Ilyes</title>
 
 <link rel="stylesheet" href="style.css">
 
+<!-- PDF LIB -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
@@ -17,15 +20,12 @@
   <input type="text" id="name" placeholder="Nom">
   <input type="text" id="job" placeholder="Métier">
 
-  <!-- PROFIL -->
   <textarea id="desc" placeholder="Profil"></textarea>
   <small id="descHelp" class="help"></small>
 
-  <!-- SKILLS -->
   <input type="text" id="skills" placeholder="Compétences">
   <small id="skillsHelp" class="help"></small>
 
-  <!-- EXP -->
   <input type="text" id="exp" placeholder="Expérience">
   <small id="expHelp" class="help"></small>
 
@@ -35,27 +35,30 @@
   <button onclick="downloadPDF()">Télécharger PDF</button>
 
   <!-- CV -->
-  <div class="cv" id="cv">
-    <div class="left">
-      <img id="pimage" src="https://via.placeholder.com/100">
+  <div id="cv">
+    <div class="cv-page">
 
-      <h2 id="pname">Nom</h2>
-      <p id="pjob">Métier</p>
+      <div class="left">
+        <img id="pimage" src="https://via.placeholder.com/100">
+        <h2 id="pname">Nom</h2>
+        <p id="pjob">Métier</p>
 
-      <h3>Compétences</h3>
-      <div id="pskills"></div>
-    </div>
+        <h3>Compétences</h3>
+        <div id="pskills"></div>
+      </div>
 
-    <div class="right">
-      <h3>Profil</h3>
-      <p id="pdesc"></p>
+      <div class="right">
+        <h3>Profil</h3>
+        <p id="pdesc"></p>
 
-      <h3>Expérience</h3>
-      <p id="pexp"></p>
+        <h3>Expérience</h3>
+        <p id="pexp"></p>
+      </div>
+
     </div>
   </div>
 
-  <footer>© 2026 Ilyes - CV Generator</footer>
+  <footer>© 2026 Ilyes</footer>
 </div>
 
 <script src="script.js"></script>

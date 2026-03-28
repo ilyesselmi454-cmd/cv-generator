@@ -4,7 +4,6 @@ body {
   background: #1e3c72;
 }
 
-/* CONTAINER */
 .container {
   width: 400px;
   margin: 30px auto;
@@ -13,17 +12,15 @@ body {
   border-radius: 10px;
 }
 
-/* INPUTS */
 input, textarea {
   width: 100%;
   margin: 8px 0;
   padding: 10px;
-  border: none;
   border-radius: 6px;
+  border: none;
   background: #eee;
 }
 
-/* BUTTON */
 button {
   width: 100%;
   padding: 10px;
@@ -35,50 +32,40 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  transform: scale(1.05);
-  transition: 0.2s;
-}
-
-/* HELP TEXT */
 .help {
-  display: block;
   font-size: 12px;
   color: gray;
-  margin-bottom: 10px;
+  display: block;
 }
 
 /* CV */
-.cv {
+.cv-page {
+  width: 210mm;
+  min-height: 297mm;
   display: flex;
-  margin-top: 20px;
   background: white;
 }
 
-/* LEFT SIDE */
+/* LEFT */
 .left {
   width: 35%;
   background: #2a5298;
   color: white;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
 }
 
-/* IMAGE (FIX FINAL) */
 .left img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  display: block;
-  margin: 0 auto 10px;
-  border: 2px solid white;
 }
 
-/* RIGHT SIDE */
+/* RIGHT */
 .right {
   width: 65%;
-  padding: 15px;
+  padding: 20px;
 }
 
 /* SKILLS */
@@ -92,68 +79,11 @@ button:hover {
 .skill-bar {
   height: 5px;
   background: orange;
-  margin-top: 5px;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 12px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .container {
-    width: 90%;
-  }
-
-  .cv {
-    flex-direction: column;
-  }
-
-  .left, .right {
-    width: 100%;
-  }
-}@media print {
-  .cv {
-    width: 210mm;
-    min-height: 297mm;
-    display: block;
-  }
-
-  .left, .right {
-    width: 100%;
-    display: block;
-  }
-}function downloadPDF() {
-  let element = document.getElementById("cv");
-
-  let opt = {
-    margin: 0,
-    filename: 'cv-pro.pdf',
-    image: { type: 'jpeg', quality: 1 },
-    html2canvas: { scale: 3, useCORS: true },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  setTimeout(() => {
-    html2pdf().set(opt).from(element).save();
-  }, 500);
-}#cv {
-  width: 210mm;
-  min-height: 297mm;
-  background: white;
-}
-
-/* FIX PDF */
+/* PRINT */
 @media print {
-  .cv {
-    display: block !important;
-  }
-
-  .left, .right {
-    width: 100% !important;
-    display: block;
+  body {
+    background: white;
   }
 }
