@@ -28,18 +28,59 @@ button {
   background: #ff7b00;
   color: white;
   border: none;
-  border-radius: 6px;
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #1e3c72;
 }
 
-/* CV STYLE */
+.container {
+  width: 400px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #eee;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #ff7b00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+.help {
+  display: block;
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+/* CV */
 .cv {
   display: flex;
   margin-top: 20px;
-  width: 100%;
-  background: white;
 }
 
-/* LEFT SIDE */
+/* LEFT */
 .left {
   width: 35%;
   background: #2a5298;
@@ -49,19 +90,22 @@ button {
 }
 
 .left img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
+  display: block;
+  margin: 0 auto 10px;
+  border: 2px solid white;
 }
 
-/* RIGHT SIDE */
+/* RIGHT */
 .right {
   width: 65%;
   padding: 20px;
 }
 
-/* SKILLS BAR */
+/* SKILLS */
 .skill {
   background: #ffffff30;
   margin: 5px 0;
@@ -73,13 +117,10 @@ button {
   height: 5px;
   background: orange;
   margin-top: 5px;
-}#cv {
-  width: 210mm;
-  min-height: 297mm;
 }
 
-@media print {
-  body {
-    background: white;
-  }
+footer {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 12px;
 }
