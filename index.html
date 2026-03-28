@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<head><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="Wvvy2jUMRNKZvY_Hxii3m_8dt7aajiTExa6WhplJ3vs" />
 <title>CV Generator by Ilyes</title>
 
 <link rel="stylesheet" href="style.css">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
 
 <div class="container">
-  <h1>CV Generator PRO</h1>
+  <h1>CV Generator by Ilyes</h1>
 
   <input type="text" id="name" placeholder="Nom">
   <input type="text" id="job" placeholder="Métier">
+
+  <!-- PROFIL -->
   <textarea id="desc" placeholder="Profil"></textarea>
-  <input type="text" id="skills" placeholder="Compétences (ex: HTML, CSS, JS)">
+  <small id="descHelp" class="help"></small>
+
+  <!-- SKILLS -->
+  <input type="text" id="skills" placeholder="Compétences">
+  <small id="skillsHelp" class="help"></small>
+
+  <!-- EXP -->
   <input type="text" id="exp" placeholder="Expérience">
+  <small id="expHelp" class="help"></small>
+
   <input type="file" id="photo" accept="image/*">
 
   <button onclick="generate()">Générer</button>
@@ -26,10 +36,8 @@
 
   <!-- CV -->
   <div class="cv" id="cv">
-    
-    <!-- LEFT -->
     <div class="left">
-      <img id="pimage">
+      <img id="pimage" src="https://via.placeholder.com/100">
 
       <h2 id="pname">Nom</h2>
       <p id="pjob">Métier</p>
@@ -38,7 +46,6 @@
       <div id="pskills"></div>
     </div>
 
-    <!-- RIGHT -->
     <div class="right">
       <h3>Profil</h3>
       <p id="pdesc"></p>
@@ -46,11 +53,11 @@
       <h3>Expérience</h3>
       <p id="pexp"></p>
     </div>
-
   </div>
+
+  <footer>© 2026 Ilyes - CV Generator</footer>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-

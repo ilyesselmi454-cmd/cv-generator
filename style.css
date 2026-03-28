@@ -115,4 +115,29 @@ footer {
   .left, .right {
     width: 100%;
   }
+}@media print {
+  .cv {
+    width: 210mm;
+    min-height: 297mm;
+    display: block;
+  }
+
+  .left, .right {
+    width: 100%;
+    display: block;
+  }
+}function downloadPDF() {
+  let element = document.getElementById("cv");
+
+  let opt = {
+    margin: 0,
+    filename: 'cv-pro.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 3, useCORS: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  setTimeout(() => {
+    html2pdf().set(opt).from(element).save();
+  }, 500);
 }

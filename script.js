@@ -1,3 +1,4 @@
+// GENERATE CV
 function generate() {
   let name = document.getElementById("name").value;
   let job = document.getElementById("job").value;
@@ -10,6 +11,7 @@ function generate() {
   document.getElementById("pdesc").innerText = desc;
   document.getElementById("pexp").innerText = exp;
 
+  // SKILLS
   let skillsContainer = document.getElementById("pskills");
   skillsContainer.innerHTML = "";
 
@@ -31,13 +33,13 @@ function generate() {
   if (file) {
     let reader = new FileReader();
     reader.onload = function(e) {
-      let img = document.getElementById("pimage");
-      img.src = e.target.result;
+      document.getElementById("pimage").src = e.target.result;
     };
     reader.readAsDataURL(file);
   }
 }
 
+// PDF
 function downloadPDF() {
   let element = document.getElementById("cv");
 
@@ -45,9 +47,34 @@ function downloadPDF() {
     html2pdf().set({
       margin: 0,
       filename: 'cv-pro.pdf',
-      image: { type: 'jpeg', quality: 1 },
-      html2canvas: { scale: 3, useCORS: true },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      html2canvas: { scale: 3 },
+      jsPDF: { unit: 'mm', format: 'a4' }
     }).from(element).save();
   }, 500);
 }
+
+// INTERACTIVE SUGGESTIONS
+
+document.getElementById("desc").addEventListener("focus", () => {
+  document.getElementById("descHelp").innerText =
+    "Ex: Développeur web motivé avec passion pour la création de sites modernes.";
+});
+document.getElementById("desc").addEventListener("blur", () => {
+  document.getElementById("descHelp").innerText = "";
+});
+
+document.getElementById("skills").addEventListener("focus", () => {
+  document.getElementById("skillsHelp").innerText =
+    "Ex: HTML, CSS, JavaScript, Python";
+});
+document.getElementById("skills").addEventListener("blur", () => {
+  document.getElementById("skillsHelp").innerText = "";
+});
+
+document.getElementById("exp").addEventListener("focus", () => {
+  document.getElementById("expHelp").innerText =
+    "Ex: Stage développeur web, création de sites pour clients.";
+});
+document.getElementById("exp").addEventListener("blur", () => {
+  document.getElementById("expHelp").innerText = "";
+});
