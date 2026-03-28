@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI';
-  background: linear-gradient(135deg,#141e30,#243b55);
+  background: #eef2f7;
 }
 
 /* CONTAINER */
@@ -9,78 +9,73 @@ body {
   margin: auto;
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 /* INPUT */
-input, textarea {
+input, textarea, select {
   width: 100%;
   margin: 6px 0;
   padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
 /* BUTTON */
 button {
   width: 100%;
+  margin-top: 6px;
   padding: 10px;
-  margin-top: 5px;
-  background: #ff7b00;
+  border-radius: 10px;
+  background: #6c8cff;
   color: white;
   border: none;
 }
 
 /* CV */
 .cv {
-  display: flex;
-  width: 210mm;
-  min-height: 297mm;
   margin-top: 20px;
+  width: 210mm;
   background: white;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  border-radius: 15px;
+  padding: 20px;
 }
 
-/* SIDEBAR */
-.sidebar {
-  width: 35%;
-  background: #2a5298;
-  color: white;
-  padding: 20px;
+/* CARD LAYOUT */
+.card-layout {
   text-align: center;
 }
 
-.sidebar img {
+.card-layout img {
   width: 80px;
-  height: 80px;
   border-radius: 50%;
 }
 
-.sidebar hr {
-  border: 1px solid rgba(255,255,255,0.3);
-}
-
-/* MAIN */
-.main {
-  width: 65%;
-  padding: 25px;
-}
-
-/* TITLES */
-h3 {
-  border-bottom: 2px solid #ff7b00;
-  padding-bottom: 5px;
+.section {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f7f9fc;
+  border-radius: 10px;
 }
 
 /* SKILLS */
 .skill {
-  margin: 8px 0;
+  background: #e0e7ff;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 8px;
+  display: inline-block;
 }
 
-.skill-bar {
-  height: 6px;
-  background: rgba(255,255,255,0.3);
+/* SPLIT LAYOUT */
+.split .card-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
-.skill-fill {
-  height: 6px;
-  background: white;
+/* MINIMAL */
+.minimal .section {
+  background: none;
+  border-bottom: 1px solid #ddd;
 }

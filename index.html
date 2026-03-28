@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV PRO MAX</title>
+<title>CV Builder</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -11,49 +11,60 @@
 <body>
 
 <div class="container">
-  <h1>CV PRO MAX</h1>
+  <h1>✨ CV Builder</h1>
 
-  <input id="name" placeholder="Nom">
-  <input id="job" placeholder="Métier">
-  <input id="email" placeholder="Email">
-  <input id="phone" placeholder="Téléphone">
+  <input id="name" placeholder="👤 Nom">
+  <input id="job" placeholder="💼 Métier">
+  <input id="email" placeholder="📧 Email">
+  <input id="phone" placeholder="📱 Téléphone">
 
-  <textarea id="desc" placeholder="Profil"></textarea>
-  <input id="skills" placeholder="Compétences">
-  <input id="exp" placeholder="Expérience">
+  <select id="template" onchange="changeTemplate()">
+    <option value="card">Card moderne</option>
+    <option value="split">Split layout</option>
+    <option value="minimal">Minimal clean</option>
+  </select>
+
+  <textarea id="desc" placeholder="🧠 Profil"></textarea>
+  <small id="descHelp"></small>
+
+  <input id="skills" placeholder="⭐ Compétences">
+  <small id="skillsHelp"></small>
+
+  <input id="exp" placeholder="📂 Expérience">
   <input type="file" id="photo">
 
-  <button onclick="generate()">Générer</button>
-  <button onclick="downloadPDF()">PDF</button>
+  <button onclick="generate()">✨ Générer</button>
+  <button onclick="downloadPDF()">📄 PDF</button>
 
   <!-- CV -->
-  <div id="cv" class="cv">
+  <div id="cv" class="cv card">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
+    <div class="card-layout">
       <img id="pimage" src="https://via.placeholder.com/100">
 
       <h2 id="pname"></h2>
       <p id="pjob"></p>
 
-      <hr>
+      <div class="info">
+        <p>📧 <span id="pemail"></span></p>
+        <p>📱 <span id="pphone"></span></p>
+      </div>
 
-      <p>📧 <span id="pemail"></span></p>
-      <p>📱 <span id="pphone"></span></p>
+      <div class="section">
+        <h3>🧠 Profil</h3>
+        <p id="pdesc"></p>
+      </div>
 
-      <hr>
+      <div class="section">
+        <h3>⭐ Compétences</h3>
+        <div id="pskills"></div>
+      </div>
 
-      <h3>Compétences</h3>
-      <div id="pskills"></div>
-    </div>
+      <div class="section">
+        <h3>📂 Expérience</h3>
+        <p id="pexp"></p>
+      </div>
 
-    <!-- MAIN -->
-    <div class="main">
-      <h3>Profil</h3>
-      <p id="pdesc"></p>
-
-      <h3>Expérience</h3>
-      <p id="pexp"></p>
     </div>
 
   </div>

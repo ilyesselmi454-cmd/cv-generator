@@ -1,4 +1,5 @@
 function generate() {
+
   pname.innerText = name.value;
   pjob.innerText = job.value;
   pemail.innerText = email.value;
@@ -9,14 +10,7 @@ function generate() {
   pskills.innerHTML = "";
 
   skills.value.split(",").forEach(skill => {
-    pskills.innerHTML += `
-      <div class="skill">
-        <p>${skill}</p>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width:80%"></div>
-        </div>
-      </div>
-    `;
+    pskills.innerHTML += `<span class="skill">${skill}</span>`;
   });
 
   let file = photo.files[0];
@@ -27,11 +21,24 @@ function generate() {
   }
 }
 
+/* TEMPLATE */
+function changeTemplate(){
+  cv.className = "cv " + template.value;
+}
+
+/* PDF */
 function downloadPDF(){
   html2pdf().set({
-    margin:0,
-    filename:'cv-pro.pdf',
+    margin:5,
+    filename:'cv-modern.pdf',
     html2canvas:{scale:3},
     jsPDF:{unit:'mm',format:'a4'}
   }).from(cv).save();
 }
+
+/* SUGGESTIONS */
+desc.onfocus=()=>descHelp.innerText="Ex: Développeur créatif et motivé...";
+desc.onblur=()=>descHelp.innerText="";
+
+skills.onfocus=()=>skillsHelp.innerText="Ex: HTML, CSS, JS";
+skills.onblur=()=>skillsHelp.innerText="";
