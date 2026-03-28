@@ -13,29 +13,40 @@
 <div class="container">
   <h1>CV Generator Pro</h1>
 
-  <input type="text" id="name" placeholder="Nom">
-  <input type="text" id="job" placeholder="Métier">
-  <input type="text" id="email" placeholder="Email">
-  <input type="text" id="phone" placeholder="Téléphone">
+  <input id="name" placeholder="Nom">
+  <input id="job" placeholder="Métier">
+  <input id="email" placeholder="Email">
+  <input id="phone" placeholder="Téléphone">
 
   <select id="gender">
     <option value="male">Homme</option>
     <option value="female">Femme</option>
   </select>
 
+  <select id="template" onchange="changeTemplate()">
+    <option value="modern">Moderne</option>
+    <option value="classic">Classique</option>
+    <option value="creative">Créatif</option>
+  </select>
+
   <textarea id="desc" placeholder="Profil"></textarea>
-  <input type="text" id="skills" placeholder="Compétences (HTML,CSS...)">
-  <input type="text" id="exp" placeholder="Expérience">
+  <small id="descHelp"></small>
+
+  <input id="skills" placeholder="Compétences (HTML,CSS...)">
+  <small id="skillsHelp"></small>
+
+  <input id="exp" placeholder="Expérience">
   <input type="file" id="photo">
 
   <button onclick="generate()">Générer</button>
-  <button onclick="downloadPDF()">Télécharger PDF</button>
+  <button onclick="downloadPDF()">PDF</button>
 
   <!-- CV -->
-  <div id="cv" class="cv">
+  <div id="cv" class="cv modern">
 
     <div class="header">
       <img id="pimage" src="https://via.placeholder.com/100">
+
       <div>
         <h1 id="pname"></h1>
         <p id="pjob"></p>

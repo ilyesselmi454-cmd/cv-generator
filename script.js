@@ -1,47 +1,47 @@
 function generate() {
-  let job = document.getElementById("job").value.toLowerCase();
-  let gender = document.getElementById("gender").value;
 
   let cv = document.getElementById("cv");
-  let header = document.querySelector(".header");
+  cv.className = "cv " + template.value;
+
+  let jobText = job.value.toLowerCase();
 
   // RESET
-  header.className = "header";
+  cv.classList.remove("male","female","dev-theme","marketing-theme","design-theme");
 
-  // THEME PAR METIER
-  if (job.includes("dev") || job.includes("informatique")) {
-    header.classList.add("blue");
-  } else if (job.includes("marketing")) {
-    header.classList.add("green");
+  // GENRE
+  if (gender.value === "female") {
+    cv.classList.add("female");
   } else {
-    header.classList.add("dark");
+    cv.classList.add("male");
   }
 
-  // THEME GENRE
-  if (gender === "female") {
-    header.classList.add("pink");
+  // METIER
+  if (jobText.includes("dev")) {
+    cv.classList.add("dev-theme");
+  } else if (jobText.includes("marketing")) {
+    cv.classList.add("marketing-theme");
+  } else if (jobText.includes("design")) {
+    cv.classList.add("design-theme");
   }
 
-  document.getElementById("pname").innerText = name.value;
-  document.getElementById("pjob").innerText = job;
-  document.getElementById("pemail").innerText = email.value;
-  document.getElementById("pphone").innerText = phone.value;
-  document.getElementById("pdesc").innerText = desc.value;
-  document.getElementById("pexp").innerText = exp.value;
+  pname.innerText = name.value;
+  pjob.innerText = job.value;
+  pemail.innerText = email.value;
+  pphone.innerText = phone.value;
+  pdesc.innerText = desc.value;
+  pexp.innerText = exp.value;
 
-  let skillsContainer = document.getElementById("pskills");
-  skillsContainer.innerHTML = "";
+  pskills.innerHTML = "";
 
   skills.value.split(",").forEach(skill => {
-    let div = document.createElement("div");
-    div.className = "skill";
-    div.innerHTML = `
-      <p>${skill}</p>
-      <div class="skill-bar">
-        <div class="skill-fill" style="width:80%"></div>
+    pskills.innerHTML += `
+      <div class="skill">
+        <p>${skill}</p>
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:80%"></div>
+        </div>
       </div>
     `;
-    skillsContainer.appendChild(div);
   });
 
   let file = photo.files[0];
@@ -52,6 +52,23 @@ function generate() {
   }
 }
 
-function downloadPDF(){
-  html2pdf().from(document.getElementById("cv")).save();
+/* TEMPLATE */
+function changeTemplate(){
+  cv.className = "cv " + template.value;
 }
+
+/* PDF */
+function downloadPDF(){
+  html2pdf().set({
+    margin:5,
+    filename:'cv-pro.pdf',
+    html2canvas:{scale:3},
+    jsPDF:{unit:'mm',format:'a4'}
+  }).from(cv).save();
+}
+
+/* SUGGESTIONS */
+desc.onfocus=()=>descHelp.innerText="Ex: Développeur motivé avec projets modernes...";
+desc.onblur=()=>descHelp.innerText="";
+skills.onfocus=()=>skillsHelp.innerText="Ex: HTML, CSS, JavaScript";
+skills.onblur=()=>skillsHelp.innerText="";

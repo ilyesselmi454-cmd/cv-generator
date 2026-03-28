@@ -1,9 +1,8 @@
 body {
-  font-family: Arial;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
 }
 
-/* CONTAINER */
 .container {
   width: 420px;
   margin: auto;
@@ -36,19 +35,26 @@ button {
 .cv {
   width: 210mm;
   min-height: 297mm;
-  background: white;
   margin-top: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  border-radius: 10px;
+  background: white;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* MOTIF TOP */
+.cv::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background: linear-gradient(90deg,#ff7b00,#ffae42);
 }
 
 /* HEADER */
 .header {
   display: flex;
-  align-items: center;
   gap: 15px;
-  padding: 20px;
+  padding: 25px;
   color: white;
 }
 
@@ -59,22 +65,20 @@ button {
   border: 3px solid white;
 }
 
-/* CONTENT */
+/* MAIN */
 .content {
   display: flex;
 }
 
-/* LEFT */
 .left {
   width: 65%;
   padding: 20px;
 }
 
-/* RIGHT */
 .right {
   width: 35%;
   padding: 20px;
-  background: #f4f4f4;
+  background: #f5f5f5;
   border-left: 2px dashed #ddd;
 }
 
@@ -85,10 +89,6 @@ h3 {
 }
 
 /* SKILLS */
-.skill {
-  margin: 10px 0;
-}
-
 .skill-bar {
   height: 6px;
   background: #ddd;
@@ -97,12 +97,45 @@ h3 {
 
 .skill-fill {
   height: 6px;
-  background: #ff7b00;
-  border-radius: 5px;
+  background: linear-gradient(90deg,#ff7b00,#ffae42);
 }
 
-/* THEMES */
-.blue { background:#2a5298; }
-.green { background:#27ae60; }
-.pink { background:#e84393; }
-.dark { background:#222; }
+/* GENRE */
+.male #pname {
+  text-shadow: 2px 2px 6px rgba(0,0,255,0.4);
+}
+
+.female #pname {
+  text-shadow: 2px 2px 6px rgba(255,0,150,0.5);
+}
+
+/* TEMPLATES */
+.modern .header { background:#2a5298; }
+
+.classic {
+  font-family: Georgia;
+}
+.classic .header {
+  background: #000;
+}
+.classic .right {
+  border-left: 2px solid black;
+}
+
+.creative .header {
+  background: linear-gradient(90deg,#ff7b00,#ffae42);
+}
+.creative .content {
+  flex-direction: column;
+}
+
+/* METIER */
+.dev-theme::before {
+  background: linear-gradient(90deg,#2a5298,#4facfe);
+}
+.marketing-theme::before {
+  background: linear-gradient(90deg,#27ae60,#2ecc71);
+}
+.design-theme::before {
+  background: linear-gradient(90deg,#8e44ad,#e056fd);
+}
