@@ -21,7 +21,7 @@ function generate() {
 
     div.innerHTML = `
       ${skill}
-      <div class="skill-bar" style="width:${Math.random()*100}%"></div>
+      <div class="skill-bar" style="width:80%"></div>
     `;
 
     skillsContainer.appendChild(div);
@@ -39,22 +39,37 @@ function generate() {
   }
 }
 
-// PDF
+// PDF VERSION FIX
 function downloadPDF() {
   let element = document.getElementById("cv");
 
+  if (!element) {
+    alert("Erreur: CV non trouvé");
+    return;
+  }
+
+  let opt = {
+    margin: 5,
+    filename: 'cv-pro.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true
+    },
+    jsPDF: {
+      unit: 'mm',
+      format: 'a4',
+      orientation: 'portrait'
+    }
+  };
+
+  // IMPORTANT : attendre que tout charge
   setTimeout(() => {
-    html2pdf().set({
-      margin: 0,
-      filename: 'cv-pro.pdf',
-      html2canvas: { scale: 3 },
-      jsPDF: { unit: 'mm', format: 'a4' }
-    }).from(element).save();
-  }, 500);
+    html2pdf().set(opt).from(element).save();
+  }, 700);
 }
 
 // INTERACTIVE SUGGESTIONS
-
 document.getElementById("desc").addEventListener("focus", () => {
   document.getElementById("descHelp").innerText =
     "Ex: Développeur web motivé avec passion pour la création de sites modernes.";

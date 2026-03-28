@@ -140,4 +140,20 @@ footer {
   setTimeout(() => {
     html2pdf().set(opt).from(element).save();
   }, 500);
+}#cv {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+}
+
+/* FIX PDF */
+@media print {
+  .cv {
+    display: block !important;
+  }
+
+  .left, .right {
+    width: 100% !important;
+    display: block;
+  }
 }
