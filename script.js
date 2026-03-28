@@ -20,7 +20,14 @@ function generate() {
 
   skillsVal.split(",").forEach(skill => {
     if(skill.trim() !== ""){
-      skillsContainer.innerHTML += `<span class="skill">${skill}</span>`;
+      skillsContainer.innerHTML += `
+        <div class="skill">
+          <p>${skill}</p>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width:${Math.floor(Math.random()*100)}%"></div>
+          </div>
+        </div>
+      `;
     }
   });
 
@@ -41,27 +48,47 @@ function changeTheme(){
   cv.className = "cv " + theme;
 }
 
-/* PDF */
+/* PDF FIX FINAL */
 function downloadPDF(){
 
-  let cv = document.getElementById("cv");
+  let original = document.getElementById("cv");
+  let clone = original.cloneNode(true);
+
   let style = document.getElementById("pdfStyle").value;
 
-  // reset
-  cv.classList.remove("pdf-premium","pdf-linkedin");
-
   if(style === "premium"){
-    cv.classList.add("pdf-premium");
+    clone.classList.add("pdf-premium");
   }
   if(style === "linkedin"){
-    cv.classList.add("pdf-linkedin");
+    clone.classList.add("pdf-linkedin");
   }
+
+  clone.style.position = "absolute";
+  clone.style.left = "-9999px";
+  document.body.appendChild(clone);
 
   html2pdf().set({
     margin:0,
     filename:'cv-pro.pdf',
     image:{type:'jpeg',quality:1},
-    html2canvas:{scale:4,backgroundColor:"#ffffff"},
+    html2canvas:{scale:4,useCORS:true,backgroundColor:"#ffffff"},
     jsPDF:{unit:'mm',format:'a4'}
-  }).from(cv).save();
+  }).from(clone).save().then(()=>{
+    document.body.removeChild(clone);
+  });
 }
+
+/* SUGGESTIONS */
+document.getElementById("desc").onfocus = () => {
+  descHelp.innerText = "Ex: Développeur motivé avec projets modernes.";
+};
+document.getElementById("desc").onblur = () => {
+  descHelp.innerText = "";
+};
+
+document.getElementById("skills").onfocus = () => {
+  skillsHelp.innerText = "Ex: HTML, CSS, JavaScript";
+};
+document.getElementById("skills").onblur = () => {
+  skillsHelp.innerText = "";
+};

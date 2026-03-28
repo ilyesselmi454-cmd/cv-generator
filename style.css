@@ -3,6 +3,7 @@ body {
   background: #eef2f7;
 }
 
+/* CONTAINER */
 .container {
   width: 420px;
   margin: auto;
@@ -11,6 +12,7 @@ body {
   border-radius: 15px;
 }
 
+/* INPUT */
 input, textarea, select {
   width: 100%;
   margin: 6px 0;
@@ -19,6 +21,7 @@ input, textarea, select {
   border: 1px solid #ddd;
 }
 
+/* BUTTON */
 button {
   width: 100%;
   margin-top: 6px;
@@ -29,6 +32,7 @@ button {
   border: none;
 }
 
+/* CV */
 .cv {
   display: flex;
   width: 210mm;
@@ -43,30 +47,46 @@ button {
   color: white;
 }
 
-.left-col img {
-  width: 80px;
-  border-radius: 50%;
-}
-
 /* RIGHT */
 .right-col {
   width: 65%;
   padding: 20px;
 }
 
-/* SKILLS */
+/* SKILL BAR */
 .skill {
-  display: inline-block;
-  margin: 5px;
-  padding: 6px 10px;
-  background: #eee;
-  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.skill-bar {
+  height: 6px;
+  background: #ddd;
+}
+
+.skill-fill {
+  height: 6px;
+  background: #6c8cff;
 }
 
 /* THEMES */
 .blue .left-col { background:#4a6cff; }
 .purple .left-col { background:#7a4aff; }
 .green .left-col { background:#27ae60; }
+.red .left-col { background:#e63946; }
+.orange .left-col { background:#ff6f00; }
+.teal .left-col { background:#10ac84; }
+.pink .left-col { background:#e84393; }
+.dark .left-col { background:#2f3640; }
+.cyan .left-col { background:#00a8ff; }
+.gold .left-col { background:#f6b93b; }
+
+/* PDF FIX */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
 
 /* PDF STYLES */
 .pdf-premium {
@@ -75,11 +95,4 @@ button {
 
 .pdf-linkedin {
   font-family: Arial;
-}
-
-@media print {
-  .left-col {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
 }
