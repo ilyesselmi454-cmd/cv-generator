@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Builder Pro</title>
+<title>CV Builder</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -13,14 +13,14 @@
 <div class="container">
   <h1>CV Builder</h1>
 
-  <input id="name" placeholder="Nom">
-  <input id="job" placeholder="Métier">
-  <input id="email" placeholder="Email">
-  <input id="phone" placeholder="Téléphone">
+  <textarea id="name" placeholder="Nom"></textarea>
+  <textarea id="job" placeholder="Métier"></textarea>
+  <textarea id="email" placeholder="Email"></textarea>
+  <textarea id="phone" placeholder="Téléphone"></textarea>
 
   <textarea id="desc" placeholder="Profil"></textarea>
-  <textarea id="skills" placeholder="Compétences (HTML, CSS...)">
-  <textarea id="exp" placeholder="Expérience">
+  <textarea id="skills" placeholder="Compétences (une par ligne)"></textarea>
+  <textarea id="exp" placeholder="Expérience"></textarea>
 
   <input type="file" id="photo">
 
@@ -32,10 +32,8 @@
 
     <div class="left">
       <img id="pimage">
-
       <h2 id="pname">Nom</h2>
       <p id="pjob"></p>
-
       <p id="pemail"></p>
       <p id="pphone"></p>
     </div>

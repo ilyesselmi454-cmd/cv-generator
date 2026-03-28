@@ -3,6 +3,7 @@ body {
   background: #f0f2f5;
 }
 
+/* CONTAINER */
 .container {
   width: 400px;
   margin: auto;
@@ -10,12 +11,16 @@ body {
   padding: 20px;
 }
 
-input, textarea {
+/* TEXTAREA */
+textarea {
   width: 100%;
   margin: 5px 0;
   padding: 10px;
+  resize: none;
+  min-height: 40px;
 }
 
+/* BUTTON */
 button {
   width: 100%;
   padding: 10px;
@@ -24,9 +29,9 @@ button {
 
 /* CV */
 .cv {
-  width: 794px; /* largeur A4 en px */
-  min-height: 1123px; /* hauteur A4 */
-  margin: auto; /* CENTRAGE */
+  width: 794px;
+  min-height: 1123px;
+  margin: auto;
   display: flex;
   background: white;
 }
@@ -52,6 +57,11 @@ button {
   padding: 20px;
 }
 
+/* RETOUR A LA LIGNE */
+#cv p {
+  white-space: pre-line;
+}
+
 /* SKILLS */
 .skill {
   margin: 10px 0;
@@ -67,20 +77,9 @@ button {
   background: #4a6cff;
 }
 
-/* FIX PRINT */
+/* PRINT FIX */
 @media print {
   * {
     -webkit-print-color-adjust: exact;
   }
-}body {
-  display: flex;
-  justify-content: center;
-}textarea {
-  resize: none;
-  min-height: 40px;
-}
-
-/* IMPORTANT pour afficher les retours à la ligne */
-#cv p {
-  white-space: pre-line;
 }

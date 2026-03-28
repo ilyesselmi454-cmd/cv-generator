@@ -1,3 +1,11 @@
+function val(id){
+  return document.getElementById(id).value;
+}
+
+function set(id,value){
+  document.getElementById(id).innerText = value;
+}
+
 function generate(){
 
   set("pname", val("name"));
@@ -10,7 +18,8 @@ function generate(){
   let box = document.getElementById("pskills");
   box.innerHTML = "";
 
-  let skills = val("skills").split("\n"); // ENTER
+  // RETOUR A LA LIGNE
+  let skills = val("skills").split("\n");
 
   skills.forEach(skill=>{
     if(skill.trim()){
@@ -24,6 +33,30 @@ function generate(){
       `;
     }
   });
+
+  // IMAGE FIX
+  let file = document.getElementById("photo").files[0];
+  if(file){
+    let reader = new FileReader();
+    reader.onload = function(e){
+      document.getElementById("pimage").src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+/* PDF */
+function downloadPDF(){
+
+  let element = document.getElementById("cv");
+
+  html2pdf().set({
+    margin: 0,
+    filename: "cv.pdf",
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: { scale: 3 },
+    jsPDF: { unit: "px", format: [794,1123] }
+  }).from(element).save();
 }
 
   // IMAGE FIX
