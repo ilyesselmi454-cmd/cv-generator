@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Generator by Ilyes</title>
+<title>CV Generator Pro</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -11,22 +11,34 @@
 <body>
 
 <div class="container">
-  <h1>CV Generator by Ilyes</h1>
+  <h1>CV Generator Pro</h1>
 
   <input type="text" id="name" placeholder="Nom">
   <input type="text" id="job" placeholder="Métier">
+  <input type="text" id="email" placeholder="Email">
+  <input type="text" id="phone" placeholder="Téléphone">
+
   <textarea id="desc" placeholder="Profil"></textarea>
-  <input type="text" id="skills" placeholder="Compétences">
+  <small id="descHelp"></small>
+
+  <input type="text" id="skills" placeholder="Compétences (séparées par ,)">
+  <small id="skillsHelp"></small>
+
   <input type="text" id="exp" placeholder="Expérience">
+  <small id="expHelp"></small>
+
   <input type="file" id="photo">
 
-  <!-- TEMPLATE CHOICE -->
+  <!-- TEMPLATE -->
   <select id="template" onchange="changeTemplate()">
     <option value="modern">Moderne</option>
     <option value="dark">Dark</option>
     <option value="minimal">Minimal</option>
+    <option value="green">Green</option>
+    <option value="purple">Purple</option>
   </select>
 
+  <button onclick="autoFill()">🤖 Auto CV</button>
   <button onclick="generate()">Générer</button>
   <button onclick="downloadPDF()">Télécharger PDF</button>
 
@@ -36,8 +48,9 @@
     <div class="header">
       <img id="pimage" src="https://via.placeholder.com/100">
       <div>
-        <h1 id="pname">Nom</h1>
-        <p id="pjob">Métier</p>
+        <h1 id="pname"></h1>
+        <p id="pjob"></p>
+        <p id="pcontact"></p>
       </div>
     </div>
 

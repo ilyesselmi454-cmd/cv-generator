@@ -25,11 +25,9 @@ button {
   border: none;
 }
 
-/* BASE CV */
 .cv {
   width: 210mm;
   min-height: 297mm;
-  margin-top: 20px;
 }
 
 .header {
@@ -39,8 +37,8 @@ button {
 }
 
 .header img {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
@@ -48,17 +46,9 @@ button {
   display: flex;
 }
 
-.left {
-  width: 60%;
-  padding: 20px;
-}
+.left { width: 60%; padding: 20px; }
+.right { width: 40%; padding: 20px; }
 
-.right {
-  width: 40%;
-  padding: 20px;
-}
-
-/* SKILLS */
 .skill-bar {
   height: 6px;
   background: #ddd;
@@ -69,36 +59,10 @@ button {
   background: orange;
 }
 
-/* TEMPLATE MODERNE */
-.modern .header {
-  background: #2a5298;
-  color: white;
-}
-
-.modern .right {
-  background: #f4f4f4;
-}
-
-/* TEMPLATE DARK */
-.dark {
-  background: #222;
-  color: white;
-}
-
-.dark .header {
-  background: black;
-}
-
-.dark .right {
-  background: #333;
-}
-
-/* TEMPLATE MINIMAL */
-.minimal {
-  background: white;
-  color: black;
-}
-
-.minimal .header {
-  border-bottom: 2px solid black;
-}
+/* TEMPLATES */
+.modern .header { background:#2a5298;color:white; }
+.dark { background:#222;color:white; }
+.dark .header { background:black; }
+.minimal .header { border-bottom:2px solid black; }
+.green .header { background:#2ecc71;color:white; }
+.purple .header { background:#8e44ad;color:white; }
