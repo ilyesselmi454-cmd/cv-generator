@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!DOCTYPE html>
-<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <title>CV Generator by Ilyes</title>
 
 <link rel="stylesheet" href="style.css">
-
-<!-- PDF LIB -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
@@ -19,7 +15,6 @@
 
   <input type="text" id="name" placeholder="Nom">
   <input type="text" id="job" placeholder="Métier">
-
   <textarea id="desc" placeholder="Profil"></textarea>
   <small id="descHelp" class="help"></small>
 
@@ -29,7 +24,7 @@
   <input type="text" id="exp" placeholder="Expérience">
   <small id="expHelp" class="help"></small>
 
-  <input type="file" id="photo" accept="image/*">
+  <input type="file" id="photo">
 
   <button onclick="generate()">Générer</button>
   <button onclick="downloadPDF()">Télécharger PDF</button>
@@ -38,27 +33,36 @@
   <div id="cv">
     <div class="cv-page">
 
-      <div class="left">
+      <!-- HEADER -->
+      <div class="header">
         <img id="pimage" src="https://via.placeholder.com/100">
-        <h2 id="pname">Nom</h2>
-        <p id="pjob">Métier</p>
-
-        <h3>Compétences</h3>
-        <div id="pskills"></div>
+        <div>
+          <h1 id="pname">Nom</h1>
+          <p id="pjob">Métier</p>
+        </div>
       </div>
 
-      <div class="right">
-        <h3>Profil</h3>
-        <p id="pdesc"></p>
+      <!-- CONTENT -->
+      <div class="content">
 
-        <h3>Expérience</h3>
-        <p id="pexp"></p>
+        <div class="left">
+          <h3>Profil</h3>
+          <p id="pdesc"></p>
+
+          <h3>Expérience</h3>
+          <p id="pexp"></p>
+        </div>
+
+        <div class="right">
+          <h3>Compétences</h3>
+          <div id="pskills"></div>
+        </div>
+
       </div>
 
     </div>
   </div>
 
-  <footer>© 2026 Ilyes</footer>
 </div>
 
 <script src="script.js"></script>

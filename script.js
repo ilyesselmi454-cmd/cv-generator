@@ -18,8 +18,10 @@ function generate() {
     div.classList.add("skill");
 
     div.innerHTML = `
-      ${skill}
-      <div class="skill-bar" style="width:80%"></div>
+      <p>${skill}</p>
+      <div class="skill-bar">
+        <div class="skill-fill" style="width:${Math.random()*100}%"></div>
+      </div>
     `;
 
     skillsContainer.appendChild(div);
@@ -37,23 +39,20 @@ function generate() {
 }
 
 function downloadPDF() {
-  const element = document.querySelector(".cv-page");
+  let element = document.querySelector(".cv-page");
 
-  const opt = {
+  html2pdf().set({
     margin: 0,
     filename: 'cv-pro.pdf',
-    image: { type: 'jpeg', quality: 1 },
     html2canvas: { scale: 3 },
     jsPDF: { unit: 'mm', format: 'a4' }
-  };
-
-  html2pdf().set(opt).from(element).save();
+  }).from(element).save();
 }
 
-// SUGGESTIONS
+// Suggestions
 document.getElementById("desc").addEventListener("focus", () => {
   document.getElementById("descHelp").innerText =
-    "Ex: Développeur web motivé avec passion pour la création de sites modernes.";
+    "Ex: Développeur web passionné avec expérience en projets modernes.";
 });
 document.getElementById("desc").addEventListener("blur", () => {
   document.getElementById("descHelp").innerText = "";
@@ -61,7 +60,7 @@ document.getElementById("desc").addEventListener("blur", () => {
 
 document.getElementById("skills").addEventListener("focus", () => {
   document.getElementById("skillsHelp").innerText =
-    "Ex: HTML, CSS, JavaScript, Python";
+    "Ex: HTML, CSS, JavaScript";
 });
 document.getElementById("skills").addEventListener("blur", () => {
   document.getElementById("skillsHelp").innerText = "";
@@ -69,7 +68,7 @@ document.getElementById("skills").addEventListener("blur", () => {
 
 document.getElementById("exp").addEventListener("focus", () => {
   document.getElementById("expHelp").innerText =
-    "Ex: Stage développeur web.";
+    "Ex: Stage développeur web ou projets personnels.";
 });
 document.getElementById("exp").addEventListener("blur", () => {
   document.getElementById("expHelp").innerText = "";
