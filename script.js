@@ -1,16 +1,18 @@
 function generate(){
 
-  document.getElementById("pname").innerText = val("name");
-  document.getElementById("pjob").innerText = val("job");
-  document.getElementById("pemail").innerText = val("email");
-  document.getElementById("pphone").innerText = val("phone");
-  document.getElementById("pdesc").innerText = val("desc");
-  document.getElementById("pexp").innerText = val("exp");
+  set("pname", val("name"));
+  set("pjob", val("job"));
+  set("pemail", val("email"));
+  set("pphone", val("phone"));
+  set("pdesc", val("desc"));
+  set("pexp", val("exp"));
 
   let box = document.getElementById("pskills");
   box.innerHTML = "";
 
-  val("skills").split(",").forEach(skill=>{
+  let skills = val("skills").split("\n"); // ENTER
+
+  skills.forEach(skill=>{
     if(skill.trim()){
       box.innerHTML += `
         <div class="skill">
@@ -22,6 +24,7 @@ function generate(){
       `;
     }
   });
+}
 
   // IMAGE FIX
   let file = document.getElementById("photo").files[0];

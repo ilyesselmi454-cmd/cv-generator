@@ -75,4 +75,12 @@ button {
 }body {
   display: flex;
   justify-content: center;
+}textarea {
+  resize: none;
+  min-height: 40px;
+}
+
+/* IMPORTANT pour afficher les retours à la ligne */
+#cv p {
+  white-space: pre-line;
 }
