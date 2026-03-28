@@ -24,9 +24,10 @@ button {
 
 /* CV */
 .cv {
-  width: 800px; /* IMPORTANT pour PDF */
+  width: 794px; /* largeur A4 en px */
+  min-height: 1123px; /* hauteur A4 */
+  margin: auto; /* CENTRAGE */
   display: flex;
-  margin-top: 20px;
   background: white;
 }
 
@@ -71,4 +72,7 @@ button {
   * {
     -webkit-print-color-adjust: exact;
   }
+}body {
+  display: flex;
+  justify-content: center;
 }

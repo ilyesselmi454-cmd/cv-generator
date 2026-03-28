@@ -44,17 +44,16 @@ function downloadPDF(){
   let element = document.getElementById("cv");
 
   html2pdf().set({
-    margin: 5,
+    margin: [0, 0, 0, 0],
     filename: "cv.pdf",
     image: { type: "jpeg", quality: 1 },
     html2canvas: {
-      scale: 2,
-      useCORS: true,
-      scrollY: 0
+      scale: 3,
+      useCORS: true
     },
     jsPDF: {
-      unit: "mm",
-      format: "a4",
+      unit: "px",
+      format: [794, 1123],
       orientation: "portrait"
     }
   }).from(element).save();
