@@ -16,51 +16,46 @@
   <input type="text" id="name" placeholder="Nom">
   <input type="text" id="job" placeholder="Métier">
   <textarea id="desc" placeholder="Profil"></textarea>
-  <small id="descHelp" class="help"></small>
-
   <input type="text" id="skills" placeholder="Compétences">
-  <small id="skillsHelp" class="help"></small>
-
   <input type="text" id="exp" placeholder="Expérience">
-  <small id="expHelp" class="help"></small>
-
   <input type="file" id="photo">
+
+  <!-- TEMPLATE CHOICE -->
+  <select id="template" onchange="changeTemplate()">
+    <option value="modern">Moderne</option>
+    <option value="dark">Dark</option>
+    <option value="minimal">Minimal</option>
+  </select>
 
   <button onclick="generate()">Générer</button>
   <button onclick="downloadPDF()">Télécharger PDF</button>
 
   <!-- CV -->
-  <div id="cv">
-    <div class="cv-page">
+  <div id="cv" class="cv modern">
 
-      <!-- HEADER -->
-      <div class="header">
-        <img id="pimage" src="https://via.placeholder.com/100">
-        <div>
-          <h1 id="pname">Nom</h1>
-          <p id="pjob">Métier</p>
-        </div>
+    <div class="header">
+      <img id="pimage" src="https://via.placeholder.com/100">
+      <div>
+        <h1 id="pname">Nom</h1>
+        <p id="pjob">Métier</p>
       </div>
-
-      <!-- CONTENT -->
-      <div class="content">
-
-        <div class="left">
-          <h3>Profil</h3>
-          <p id="pdesc"></p>
-
-          <h3>Expérience</h3>
-          <p id="pexp"></p>
-        </div>
-
-        <div class="right">
-          <h3>Compétences</h3>
-          <div id="pskills"></div>
-        </div>
-
-      </div>
-
     </div>
+
+    <div class="content">
+      <div class="left">
+        <h3>Profil</h3>
+        <p id="pdesc"></p>
+
+        <h3>Expérience</h3>
+        <p id="pexp"></p>
+      </div>
+
+      <div class="right">
+        <h3>Compétences</h3>
+        <div id="pskills"></div>
+      </div>
+    </div>
+
   </div>
 
 </div>

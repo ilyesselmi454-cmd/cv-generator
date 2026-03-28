@@ -15,12 +15,11 @@ function generate() {
 
   skills.forEach(skill => {
     let div = document.createElement("div");
-    div.classList.add("skill");
 
     div.innerHTML = `
       <p>${skill}</p>
       <div class="skill-bar">
-        <div class="skill-fill" style="width:${Math.random()*100}%"></div>
+        <div class="skill-fill" style="width:80%"></div>
       </div>
     `;
 
@@ -28,48 +27,31 @@ function generate() {
   });
 
   let file = document.getElementById("photo").files[0];
-
   if (file) {
     let reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = e => {
       document.getElementById("pimage").src = e.target.result;
     };
     reader.readAsDataURL(file);
   }
 }
 
+/* TEMPLATE SWITCH */
+function changeTemplate() {
+  let cv = document.getElementById("cv");
+  let template = document.getElementById("template").value;
+
+  cv.className = "cv " + template;
+}
+
+/* PDF */
 function downloadPDF() {
-  let element = document.querySelector(".cv-page");
+  let element = document.getElementById("cv");
 
   html2pdf().set({
     margin: 0,
-    filename: 'cv-pro.pdf',
+    filename: 'cv.pdf',
     html2canvas: { scale: 3 },
     jsPDF: { unit: 'mm', format: 'a4' }
   }).from(element).save();
 }
-
-// Suggestions
-document.getElementById("desc").addEventListener("focus", () => {
-  document.getElementById("descHelp").innerText =
-    "Ex: Développeur web passionné avec expérience en projets modernes.";
-});
-document.getElementById("desc").addEventListener("blur", () => {
-  document.getElementById("descHelp").innerText = "";
-});
-
-document.getElementById("skills").addEventListener("focus", () => {
-  document.getElementById("skillsHelp").innerText =
-    "Ex: HTML, CSS, JavaScript";
-});
-document.getElementById("skills").addEventListener("blur", () => {
-  document.getElementById("skillsHelp").innerText = "";
-});
-
-document.getElementById("exp").addEventListener("focus", () => {
-  document.getElementById("expHelp").innerText =
-    "Ex: Stage développeur web ou projets personnels.";
-});
-document.getElementById("exp").addEventListener("blur", () => {
-  document.getElementById("expHelp").innerText = "";
-});

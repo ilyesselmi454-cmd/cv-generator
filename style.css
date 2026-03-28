@@ -1,57 +1,41 @@
 body {
-  margin: 0;
   font-family: Arial;
   background: #1e3c72;
 }
 
 .container {
   width: 400px;
-  margin: 30px auto;
+  margin: auto;
   background: white;
   padding: 20px;
-  border-radius: 10px;
 }
 
-input, textarea {
+input, textarea, select {
   width: 100%;
-  margin: 8px 0;
+  margin: 5px 0;
   padding: 10px;
-  border-radius: 6px;
-  border: none;
-  background: #eee;
 }
 
 button {
   width: 100%;
+  margin-top: 5px;
   padding: 10px;
-  margin-top: 10px;
-  background: #ff7b00;
+  background: orange;
   color: white;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
-.help {
-  font-size: 12px;
-  color: gray;
-}
-
-/* CV */
-.cv-page {
+/* BASE CV */
+.cv {
   width: 210mm;
   min-height: 297mm;
-  padding: 20px;
-  background: white;
+  margin-top: 20px;
 }
 
-/* HEADER */
 .header {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
+  gap: 15px;
+  padding: 20px;
 }
 
 .header img {
@@ -60,37 +44,61 @@ button {
   border-radius: 50%;
 }
 
-/* CONTENT */
 .content {
   display: flex;
-  margin-top: 20px;
 }
 
-/* LEFT */
 .left {
   width: 60%;
+  padding: 20px;
 }
 
-/* RIGHT */
 .right {
   width: 40%;
-  padding-left: 20px;
-  border-left: 2px solid #eee;
+  padding: 20px;
 }
 
 /* SKILLS */
-.skill {
-  margin: 10px 0;
-}
-
 .skill-bar {
   height: 6px;
   background: #ddd;
-  border-radius: 5px;
 }
 
 .skill-fill {
   height: 6px;
-  background: #ff7b00;
-  border-radius: 5px;
+  background: orange;
+}
+
+/* TEMPLATE MODERNE */
+.modern .header {
+  background: #2a5298;
+  color: white;
+}
+
+.modern .right {
+  background: #f4f4f4;
+}
+
+/* TEMPLATE DARK */
+.dark {
+  background: #222;
+  color: white;
+}
+
+.dark .header {
+  background: black;
+}
+
+.dark .right {
+  background: #333;
+}
+
+/* TEMPLATE MINIMAL */
+.minimal {
+  background: white;
+  color: black;
+}
+
+.minimal .header {
+  border-bottom: 2px solid black;
 }
