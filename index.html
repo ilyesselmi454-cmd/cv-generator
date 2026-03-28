@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Generator Pro</title>
+<title>CV PRO MAX</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -11,30 +11,15 @@
 <body>
 
 <div class="container">
-  <h1>CV Generator Pro</h1>
+  <h1>CV PRO MAX</h1>
 
   <input id="name" placeholder="Nom">
   <input id="job" placeholder="Métier">
   <input id="email" placeholder="Email">
   <input id="phone" placeholder="Téléphone">
 
-  <select id="gender">
-    <option value="male">Homme</option>
-    <option value="female">Femme</option>
-  </select>
-
-  <select id="template" onchange="changeTemplate()">
-    <option value="modern">Moderne</option>
-    <option value="classic">Classique</option>
-    <option value="creative">Créatif</option>
-  </select>
-
   <textarea id="desc" placeholder="Profil"></textarea>
-  <small id="descHelp"></small>
-
-  <input id="skills" placeholder="Compétences (HTML,CSS...)">
-  <small id="skillsHelp"></small>
-
+  <input id="skills" placeholder="Compétences">
   <input id="exp" placeholder="Expérience">
   <input type="file" id="photo">
 
@@ -42,36 +27,37 @@
   <button onclick="downloadPDF()">PDF</button>
 
   <!-- CV -->
-  <div id="cv" class="cv modern">
+  <div id="cv" class="cv">
 
-    <div class="header">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
       <img id="pimage" src="https://via.placeholder.com/100">
 
-      <div>
-        <h1 id="pname"></h1>
-        <p id="pjob"></p>
-        <p class="contact">
-          📧 <span id="pemail"></span> | 📱 <span id="pphone"></span>
-        </p>
-      </div>
+      <h2 id="pname"></h2>
+      <p id="pjob"></p>
+
+      <hr>
+
+      <p>📧 <span id="pemail"></span></p>
+      <p>📱 <span id="pphone"></span></p>
+
+      <hr>
+
+      <h3>Compétences</h3>
+      <div id="pskills"></div>
     </div>
 
-    <div class="content">
-      <div class="left">
-        <h3>Profil</h3>
-        <p id="pdesc"></p>
+    <!-- MAIN -->
+    <div class="main">
+      <h3>Profil</h3>
+      <p id="pdesc"></p>
 
-        <h3>Expérience</h3>
-        <p id="pexp"></p>
-      </div>
-
-      <div class="right">
-        <h3>Compétences</h3>
-        <div id="pskills"></div>
-      </div>
+      <h3>Expérience</h3>
+      <p id="pexp"></p>
     </div>
 
   </div>
+
 </div>
 
 <script src="script.js"></script>
