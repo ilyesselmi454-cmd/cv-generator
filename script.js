@@ -43,25 +43,25 @@ function changeTheme(){
 
 /* PDF */
 function downloadPDF(){
+
+  let cv = document.getElementById("cv");
+  let style = document.getElementById("pdfStyle").value;
+
+  // reset
+  cv.classList.remove("pdf-premium","pdf-linkedin");
+
+  if(style === "premium"){
+    cv.classList.add("pdf-premium");
+  }
+  if(style === "linkedin"){
+    cv.classList.add("pdf-linkedin");
+  }
+
   html2pdf().set({
-    margin:5,
+    margin:0,
     filename:'cv-pro.pdf',
-    html2canvas:{scale:3},
+    image:{type:'jpeg',quality:1},
+    html2canvas:{scale:4,backgroundColor:"#ffffff"},
     jsPDF:{unit:'mm',format:'a4'}
-  }).from(document.getElementById("cv")).save();
+  }).from(cv).save();
 }
-
-/* SUGGESTIONS */
-document.getElementById("desc").onfocus = () => {
-  descHelp.innerText = "Ex: Développeur motivé avec projets modernes.";
-};
-document.getElementById("desc").onblur = () => {
-  descHelp.innerText = "";
-};
-
-document.getElementById("skills").onfocus = () => {
-  skillsHelp.innerText = "Ex: HTML, CSS, JS";
-};
-document.getElementById("skills").onblur = () => {
-  skillsHelp.innerText = "";
-};

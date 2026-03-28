@@ -3,7 +3,6 @@ body {
   background: #eef2f7;
 }
 
-/* CONTAINER */
 .container {
   width: 420px;
   margin: auto;
@@ -12,7 +11,6 @@ body {
   border-radius: 15px;
 }
 
-/* INPUT */
 input, textarea, select {
   width: 100%;
   margin: 6px 0;
@@ -21,7 +19,6 @@ input, textarea, select {
   border: 1px solid #ddd;
 }
 
-/* BUTTON */
 button {
   width: 100%;
   margin-top: 6px;
@@ -30,18 +27,13 @@ button {
   background: #6c8cff;
   color: white;
   border: none;
-  cursor: pointer;
 }
 
-/* CV */
 .cv {
   display: flex;
   width: 210mm;
-  margin-top: 20px;
   background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  animation: slideUp 0.6s ease;
+  margin-top: 20px;
 }
 
 /* LEFT */
@@ -54,19 +46,12 @@ button {
 .left-col img {
   width: 80px;
   border-radius: 50%;
-  margin-bottom: 10px;
 }
 
 /* RIGHT */
 .right-col {
   width: 65%;
-  padding: 25px;
-}
-
-/* TITLES */
-h3 {
-  margin-top: 20px;
-  border-bottom: 2px solid #eee;
+  padding: 20px;
 }
 
 /* SKILLS */
@@ -74,32 +59,27 @@ h3 {
   display: inline-block;
   margin: 5px;
   padding: 6px 10px;
-  border-radius: 6px;
   background: #eee;
-  max-width: 100%;
-  word-wrap: break-word;
+  border-radius: 6px;
 }
 
 /* THEMES */
-.blue .left-col { background: linear-gradient(#6c8cff,#4a6cff); }
-.purple .left-col { background: linear-gradient(#a66cff,#7a4aff); }
-.green .left-col { background: linear-gradient(#2ecc71,#27ae60); }
-.red .left-col { background: linear-gradient(#ff6b6b,#e63946); }
-.orange .left-col { background: linear-gradient(#ff9f43,#ff6f00); }
-.teal .left-col { background: linear-gradient(#1dd1a1,#10ac84); }
-.pink .left-col { background: linear-gradient(#ff6bcb,#e84393); }
-.dark .left-col { background: linear-gradient(#2f3640,#000000); }
-.cyan .left-col { background: linear-gradient(#00d2ff,#3a7bd5); }
-.gold .left-col { background: linear-gradient(#f6d365,#fda085); }
+.blue .left-col { background:#4a6cff; }
+.purple .left-col { background:#7a4aff; }
+.green .left-col { background:#27ae60; }
 
-/* ANIMATION */
-@keyframes slideUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+/* PDF STYLES */
+.pdf-premium {
+  font-family: Georgia;
+}
+
+.pdf-linkedin {
+  font-family: Arial;
+}
+
+@media print {
+  .left-col {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

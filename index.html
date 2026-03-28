@@ -13,63 +13,53 @@
 <div class="container">
   <h1>✨ CV Builder</h1>
 
-  <input id="name" placeholder="👤 Nom">
-  <input id="job" placeholder="💼 Métier">
-  <input id="email" placeholder="📧 Email">
-  <input id="phone" placeholder="📱 Téléphone">
+  <input id="name" placeholder="Nom">
+  <input id="job" placeholder="Métier">
+  <input id="email" placeholder="Email">
+  <input id="phone" placeholder="Téléphone">
 
   <!-- THEME -->
   <select id="theme" onchange="changeTheme()">
     <option value="blue">Bleu</option>
     <option value="purple">Violet</option>
     <option value="green">Vert</option>
-    <option value="red">Rouge</option>
-    <option value="orange">Orange</option>
-    <option value="teal">Turquoise</option>
-    <option value="pink">Rose</option>
-    <option value="dark">Noir</option>
-    <option value="cyan">Cyan</option>
-    <option value="gold">Gold</option>
   </select>
 
-  <textarea id="desc" placeholder="🧠 Profil"></textarea>
-  <small id="descHelp"></small>
+  <!-- PDF STYLE -->
+  <select id="pdfStyle">
+    <option value="normal">Normal</option>
+    <option value="premium">Premium</option>
+    <option value="linkedin">LinkedIn</option>
+  </select>
 
-  <input id="skills" placeholder="⭐ Compétences (séparées par ,)">
-  <small id="skillsHelp"></small>
-
-  <input id="exp" placeholder="📂 Expérience">
+  <textarea id="desc" placeholder="Profil"></textarea>
+  <input id="skills" placeholder="Compétences (séparées par ,)">
+  <input id="exp" placeholder="Expérience">
   <input type="file" id="photo">
 
-  <button onclick="generate()">✨ Générer</button>
-  <button onclick="downloadPDF()">📄 PDF</button>
+  <button onclick="generate()">Générer</button>
+  <button onclick="downloadPDF()">Télécharger PDF</button>
 
   <!-- CV -->
   <div id="cv" class="cv blue">
 
-    <!-- LEFT -->
     <div class="left-col">
       <img id="pimage" src="https://via.placeholder.com/100">
-
       <h2 id="pname">Nom</h2>
       <p id="pjob"></p>
-
       <p>📧 <span id="pemail"></span></p>
       <p>📱 <span id="pphone"></span></p>
     </div>
 
-    <!-- RIGHT -->
     <div class="right-col">
-
-      <h3>🧠 Profil</h3>
+      <h3>Profil</h3>
       <p id="pdesc"></p>
 
-      <h3>📂 Expérience</h3>
+      <h3>Expérience</h3>
       <p id="pexp"></p>
 
-      <h3>⭐ Compétences</h3>
+      <h3>Compétences</h3>
       <div id="pskills"></div>
-
     </div>
 
   </div>
