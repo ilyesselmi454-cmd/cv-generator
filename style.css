@@ -1,64 +1,64 @@
 body {
-  font-family: 'Segoe UI';
-  background: linear-gradient(135deg,#eef2f7,#dfe9f3);
+  font-family: Arial;
+  background: #f0f2f5;
 }
 
 .container {
-  width: 420px;
+  width: 400px;
   margin: auto;
   background: white;
   padding: 20px;
-  border-radius: 12px;
 }
 
-/* INPUT */
-input, textarea, select {
+input, textarea {
   width: 100%;
-  margin: 6px 0;
+  margin: 5px 0;
   padding: 10px;
 }
 
-/* BUTTON */
 button {
   width: 100%;
-  margin-top: 6px;
   padding: 10px;
-  background: #4a6cff;
-  color: white;
-  border: none;
-  cursor: pointer;
+  margin-top: 5px;
 }
 
 /* CV */
 .cv {
+  width: 800px; /* IMPORTANT pour PDF */
   display: flex;
-  width: 210mm;
-  background: white;
   margin-top: 20px;
-  animation: fadeIn 0.5s ease;
+  background: white;
 }
 
 /* LEFT */
 .left {
-  width: 35%;
-  padding: 20px;
+  width: 30%;
+  background: #4a6cff;
   color: white;
+  padding: 20px;
+}
+
+.left img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* RIGHT */
 .right {
-  width: 65%;
+  width: 70%;
   padding: 20px;
 }
-
-/* TEMPLATES */
-.classic .left { background:#4a6cff; }
-.modern .left { background: linear-gradient(135deg,#6c8cff,#4a6cff); }
-.minimal .left { background:#333; }
 
 /* SKILLS */
 .skill {
   margin: 10px 0;
+}
+
+.skill-bar {
+  height: 6px;
+  background: #ddd;
 }
 
 .skill-fill {
@@ -66,8 +66,9 @@ button {
   background: #4a6cff;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
+/* FIX PRINT */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
 }

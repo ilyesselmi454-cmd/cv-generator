@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Builder Ultimate</title>
+<title>CV Builder Pro</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -11,42 +11,33 @@
 <body>
 
 <div class="container">
-  <h1>🚀 CV Builder Ultimate</h1>
+  <h1>CV Builder</h1>
 
   <input id="name" placeholder="Nom">
   <input id="job" placeholder="Métier">
-
-  <button onclick="autoFill()">⚡ Auto remplir</button>
-
   <input id="email" placeholder="Email">
   <input id="phone" placeholder="Téléphone">
 
-  <select id="template" onchange="changeTemplate()">
-    <option value="classic">Classique</option>
-    <option value="modern">Moderne</option>
-    <option value="minimal">Minimal</option>
-  </select>
-
   <textarea id="desc" placeholder="Profil"></textarea>
-  <small id="descHelp"></small>
-
-  <input id="skills" placeholder="Compétences (HTML, CSS, JS)">
-  <small id="skillsHelp"></small>
-
+  <input id="skills" placeholder="Compétences (HTML, CSS...)">
   <input id="exp" placeholder="Expérience">
+
   <input type="file" id="photo">
 
   <button onclick="generate()">Générer</button>
-  <button onclick="downloadPDF()">PDF</button>
+  <button onclick="downloadPDF()">Télécharger PDF</button>
 
-  <div id="cv" class="cv classic">
+  <!-- CV -->
+  <div id="cv" class="cv">
 
     <div class="left">
-      <img id="pimage" src="https://via.placeholder.com/100">
+      <img id="pimage">
+
       <h2 id="pname">Nom</h2>
       <p id="pjob"></p>
-      <p>📧 <span id="pemail"></span></p>
-      <p>📱 <span id="pphone"></span></p>
+
+      <p id="pemail"></p>
+      <p id="pphone"></p>
     </div>
 
     <div class="right">
