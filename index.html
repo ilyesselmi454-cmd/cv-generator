@@ -13,6 +13,14 @@
 <div class="container">
   <h1>✨ CV Builder</h1>
 
+  <!-- THEME -->
+  <select id="theme" onchange="changeTheme()">
+    <option value="blue">Bleu</option>
+    <option value="purple">Violet</option>
+    <option value="green">Vert</option>
+    <option value="dark">Noir</option>
+  </select>
+
   <div class="input-group">
     <input id="name" placeholder=" ">
     <label>Nom</label>
@@ -24,13 +32,23 @@
   </div>
 
   <div class="input-group">
+    <input id="email" placeholder=" ">
+    <label>Email</label>
+  </div>
+
+  <div class="input-group">
+    <input id="phone" placeholder=" ">
+    <label>Téléphone</label>
+  </div>
+
+  <div class="input-group">
     <textarea id="desc" placeholder=" "></textarea>
     <label>Profil</label>
   </div>
 
   <div class="input-group">
     <textarea id="skills" placeholder=" "></textarea>
-    <label>Compétences (une par ligne)</label>
+    <label>Compétences</label>
   </div>
 
   <div class="input-group">
@@ -44,12 +62,16 @@
   <button onclick="downloadPDF()">Télécharger PDF</button>
 
   <!-- CV -->
-  <div id="cv" class="cv">
+  <div id="cv" class="cv blue">
 
     <div class="left">
       <img id="pimage">
+
       <h2 id="pname">Nom</h2>
       <p id="pjob"></p>
+
+      <p>📧 <span id="pemail"></span></p>
+      <p>📱 <span id="pphone"></span></p>
     </div>
 
     <div class="right">

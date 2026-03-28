@@ -11,33 +11,23 @@ body {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  animation: fadeIn 0.7s ease;
 }
 
-/* INPUT GROUP */
+/* INPUT */
 .input-group {
   position: relative;
   margin: 15px 0;
 }
 
-input, textarea {
+input, textarea, select {
   width: 100%;
   padding: 12px;
   border: none;
-  outline: none;
   border-radius: 8px;
   background: rgba(255,255,255,0.2);
   color: white;
-  transition: 0.3s;
 }
 
-input:focus, textarea:focus {
-  background: rgba(255,255,255,0.3);
-  transform: scale(1.03);
-}
-
-/* LABEL */
 label {
   position: absolute;
   left: 10px;
@@ -52,7 +42,6 @@ input:not(:placeholder-shown) + label,
 textarea:not(:placeholder-shown) + label {
   top: -8px;
   font-size: 12px;
-  color: white;
 }
 
 /* BUTTON */
@@ -60,15 +49,10 @@ button {
   width: 100%;
   padding: 12px;
   margin-top: 10px;
-  background: linear-gradient(90deg,#ff7b00,#ffae42);
+  background: #ff7b00;
   color: white;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
-}
-
-button:hover {
-  transform: scale(1.05);
 }
 
 /* CV */
@@ -83,17 +67,14 @@ button:hover {
 /* LEFT */
 .left {
   width: 30%;
-  background: #4a6cff;
-  color: white;
   padding: 20px;
+  color: white;
   text-align: center;
 }
 
 .left img {
   width: 100px;
-  height: 100px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 /* RIGHT */
@@ -102,28 +83,17 @@ button:hover {
   padding: 20px;
 }
 
-/* TEXT MULTILINE */
+/* MULTILINE */
 #cv p {
   white-space: pre-line;
 }
 
+/* THEMES */
+.blue .left { background:#4a6cff; }
+.purple .left { background:#7a4aff; }
+.green .left { background:#27ae60; }
+.dark .left { background:#222; }
+
 /* SKILLS */
-.skill {
-  margin: 10px 0;
-}
-
-.skill-bar {
-  height: 6px;
-  background: #ddd;
-}
-
-.skill-fill {
-  height: 6px;
-  background: #4a6cff;
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(30px);}
-  to {opacity:1; transform:translateY(0);}
-}
+.skill-bar { height:6px; background:#ddd; }
+.skill-fill { height:6px; background:#4a6cff; }

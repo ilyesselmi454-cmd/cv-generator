@@ -10,38 +10,40 @@ function generate(){
 
   set("pname", val("name"));
   set("pjob", val("job"));
+  set("pemail", val("email"));
+  set("pphone", val("phone"));
   set("pdesc", val("desc"));
   set("pexp", val("exp"));
 
   let box = document.getElementById("pskills");
   box.innerHTML = "";
 
-  let skills = val("skills").split("\n");
-
-  skills.forEach(skill=>{
+  val("skills").split("\n").forEach(skill=>{
     if(skill.trim()){
-      let level = Math.floor(Math.random()*40)+60;
-
       box.innerHTML += `
         <div class="skill">
           <p>${skill}</p>
           <div class="skill-bar">
-            <div class="skill-fill" style="width:${level}%"></div>
+            <div class="skill-fill" style="width:${Math.random()*100}%"></div>
           </div>
         </div>
       `;
     }
   });
 
-  // IMAGE
   let file = document.getElementById("photo").files[0];
   if(file){
     let reader = new FileReader();
-    reader.onload = function(e){
-      document.getElementById("pimage").src = e.target.result;
-    };
+    reader.onload = e => pimage.src = e.target.result;
     reader.readAsDataURL(file);
   }
+}
+
+/* THEME DYNAMIQUE */
+function changeTheme(){
+  let cv = document.getElementById("cv");
+  let theme = document.getElementById("theme").value;
+  cv.className = "cv " + theme;
 }
 
 /* PDF */
