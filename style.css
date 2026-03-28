@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI';
-  background: #eef2f7;
+  background: linear-gradient(135deg,#eef2f7,#dfe9f3);
 }
 
 /* CONTAINER */
@@ -30,27 +30,39 @@ button {
   background: #6c8cff;
   color: white;
   border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
 
 /* CV */
 .cv {
   margin-top: 20px;
   width: 210mm;
+  padding: 20px;
+  animation: fadeIn 0.6s ease;
+}
+
+/* CARD */
+.card {
   background: white;
   border-radius: 15px;
   padding: 20px;
-}
-
-/* CARD LAYOUT */
-.card-layout {
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.card-layout img {
+/* IMAGE */
+.card img {
   width: 80px;
   border-radius: 50%;
+  margin-bottom: 10px;
 }
 
+/* SECTION */
 .section {
   margin-top: 15px;
   padding: 10px;
@@ -60,22 +72,28 @@ button {
 
 /* SKILLS */
 .skill {
+  display: inline-block;
   background: #e0e7ff;
   margin: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 8px;
-  display: inline-block;
 }
 
-/* SPLIT LAYOUT */
-.split .card-layout {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+/* THEMES */
+.blue .card {
+  box-shadow: 0 10px 30px rgba(108,140,255,0.3);
 }
 
-/* MINIMAL */
-.minimal .section {
-  background: none;
-  border-bottom: 1px solid #ddd;
+.purple .card {
+  box-shadow: 0 10px 30px rgba(155,89,182,0.3);
+}
+
+.green .card {
+  box-shadow: 0 10px 30px rgba(46,204,113,0.3);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
 }

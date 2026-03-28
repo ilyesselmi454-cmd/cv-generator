@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Builder</title>
+<title>CV Builder Modern</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -18,10 +18,11 @@
   <input id="email" placeholder="📧 Email">
   <input id="phone" placeholder="📱 Téléphone">
 
-  <select id="template" onchange="changeTemplate()">
-    <option value="card">Card moderne</option>
-    <option value="split">Split layout</option>
-    <option value="minimal">Minimal clean</option>
+  <!-- THEME -->
+  <select id="theme" onchange="changeTheme()">
+    <option value="blue">Bleu</option>
+    <option value="purple">Violet</option>
+    <option value="green">Vert</option>
   </select>
 
   <textarea id="desc" placeholder="🧠 Profil"></textarea>
@@ -37,12 +38,13 @@
   <button onclick="downloadPDF()">📄 PDF</button>
 
   <!-- CV -->
-  <div id="cv" class="cv card">
+  <div id="cv" class="cv blue">
 
-    <div class="card-layout">
+    <div class="card">
+
       <img id="pimage" src="https://via.placeholder.com/100">
 
-      <h2 id="pname"></h2>
+      <h2 id="pname">Nom</h2>
       <p id="pjob"></p>
 
       <div class="info">
