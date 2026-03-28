@@ -1,15 +1,14 @@
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #eef2f7;
+  font-family: 'Segoe UI';
+  background: linear-gradient(135deg,#eef2f7,#dfe9f3);
 }
 
-/* CONTAINER */
 .container {
   width: 420px;
   margin: auto;
   background: white;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 
 /* INPUT */
@@ -17,8 +16,6 @@ input, textarea, select {
   width: 100%;
   margin: 6px 0;
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
 }
 
 /* BUTTON */
@@ -26,10 +23,10 @@ button {
   width: 100%;
   margin-top: 6px;
   padding: 10px;
-  border-radius: 10px;
-  background: #6c8cff;
+  background: #4a6cff;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 /* CV */
@@ -38,61 +35,39 @@ button {
   width: 210mm;
   background: white;
   margin-top: 20px;
+  animation: fadeIn 0.5s ease;
 }
 
 /* LEFT */
-.left-col {
+.left {
   width: 35%;
   padding: 20px;
   color: white;
 }
 
 /* RIGHT */
-.right-col {
+.right {
   width: 65%;
   padding: 20px;
 }
 
-/* SKILL BAR */
+/* TEMPLATES */
+.classic .left { background:#4a6cff; }
+.modern .left { background: linear-gradient(135deg,#6c8cff,#4a6cff); }
+.minimal .left { background:#333; }
+
+/* SKILLS */
 .skill {
   margin: 10px 0;
 }
 
-.skill-bar {
-  height: 6px;
-  background: #ddd;
-}
-
 .skill-fill {
   height: 6px;
-  background: #6c8cff;
+  background: #4a6cff;
 }
 
-/* THEMES */
-.blue .left-col { background:#4a6cff; }
-.purple .left-col { background:#7a4aff; }
-.green .left-col { background:#27ae60; }
-.red .left-col { background:#e63946; }
-.orange .left-col { background:#ff6f00; }
-.teal .left-col { background:#10ac84; }
-.pink .left-col { background:#e84393; }
-.dark .left-col { background:#2f3640; }
-.cyan .left-col { background:#00a8ff; }
-.gold .left-col { background:#f6b93b; }
-
-/* PDF FIX */
-@media print {
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
-
-/* PDF STYLES */
-.pdf-premium {
-  font-family: Georgia;
-}
-
-.pdf-linkedin {
-  font-family: Arial;
+/* ANIMATION */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
 }

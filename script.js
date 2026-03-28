@@ -1,94 +1,89 @@
-function generate() {
+function val(id){ return document.getElementById(id).value; }
+function set(id,v){ document.getElementById(id).innerText = v; }
 
-  let nameVal = document.getElementById("name").value;
-  let jobVal = document.getElementById("job").value;
-  let emailVal = document.getElementById("email").value;
-  let phoneVal = document.getElementById("phone").value;
-  let descVal = document.getElementById("desc").value;
-  let skillsVal = document.getElementById("skills").value;
-  let expVal = document.getElementById("exp").value;
+/* GENERATE */
+function generate(){
 
-  document.getElementById("pname").innerText = nameVal || "Nom";
-  document.getElementById("pjob").innerText = jobVal;
-  document.getElementById("pemail").innerText = emailVal;
-  document.getElementById("pphone").innerText = phoneVal;
-  document.getElementById("pdesc").innerText = descVal;
-  document.getElementById("pexp").innerText = expVal;
+  set("pname", val("name") || "Nom");
+  set("pjob", val("job"));
+  set("pemail", val("email"));
+  set("pphone", val("phone"));
+  set("pdesc", val("desc"));
+  set("pexp", val("exp"));
 
-  let skillsContainer = document.getElementById("pskills");
-  skillsContainer.innerHTML = "";
+  let box = document.getElementById("pskills");
+  box.innerHTML = "";
 
-  skillsVal.split(",").forEach(skill => {
-    if(skill.trim() !== ""){
-      skillsContainer.innerHTML += `
+  val("skills").split(",").forEach(skill=>{
+    if(skill.trim()){
+      let level = Math.floor(Math.random()*40)+60;
+      box.innerHTML += `
         <div class="skill">
           <p>${skill}</p>
-          <div class="skill-bar">
-            <div class="skill-fill" style="width:${Math.floor(Math.random()*100)}%"></div>
+          <div style="background:#ddd;height:6px">
+            <div class="skill-fill" style="width:${level}%"></div>
           </div>
         </div>
       `;
     }
   });
 
-  let file = document.getElementById("photo").files[0];
-  if(file){
-    let reader = new FileReader();
-    reader.onload = e => {
-      document.getElementById("pimage").src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+  saveData();
+}
+
+/* AUTO FILL (IA SIMPLE) */
+function autoFill(){
+  let job = val("job").toLowerCase();
+
+  if(job.includes("dev")){
+    document.getElementById("desc").value = "Développeur passionné avec expérience en projets modernes.";
+    document.getElementById("skills").value = "HTML, CSS, JavaScript, React";
+  }
+  else if(job.includes("marketing")){
+    document.getElementById("desc").value = "Spécialiste marketing orienté résultats.";
+    document.getElementById("skills").value = "SEO, Ads, Social Media";
   }
 }
 
-/* THEME */
-function changeTheme(){
-  let cv = document.getElementById("cv");
-  let theme = document.getElementById("theme").value;
-  cv.className = "cv " + theme;
+/* SAVE */
+function saveData(){
+  let data = {
+    name: val("name"),
+    job: val("job"),
+    email: val("email"),
+    phone: val("phone"),
+    desc: val("desc"),
+    skills: val("skills"),
+    exp: val("exp")
+  };
+  localStorage.setItem("cv", JSON.stringify(data));
 }
 
-/* PDF FIX FINAL */
+/* LOAD */
+window.onload = ()=>{
+  let data = JSON.parse(localStorage.getItem("cv") || "{}");
+  for(let key in data){
+    let el = document.getElementById(key);
+    if(el) el.value = data[key];
+  }
+};
+
+/* TEMPLATE */
+function changeTemplate(){
+  document.getElementById("cv").className = "cv " + val("template");
+}
+
+/* PDF */
 function downloadPDF(){
-
-  let original = document.getElementById("cv");
-  let clone = original.cloneNode(true);
-
-  let style = document.getElementById("pdfStyle").value;
-
-  if(style === "premium"){
-    clone.classList.add("pdf-premium");
-  }
-  if(style === "linkedin"){
-    clone.classList.add("pdf-linkedin");
-  }
-
-  clone.style.position = "absolute";
-  clone.style.left = "-9999px";
-  document.body.appendChild(clone);
-
   html2pdf().set({
-    margin:0,
-    filename:'cv-pro.pdf',
-    image:{type:'jpeg',quality:1},
-    html2canvas:{scale:4,useCORS:true,backgroundColor:"#ffffff"},
-    jsPDF:{unit:'mm',format:'a4'}
-  }).from(clone).save().then(()=>{
-    document.body.removeChild(clone);
-  });
+    html2canvas:{scale:3},
+    jsPDF:{format:'a4'}
+  }).from(document.getElementById("cv")).save();
 }
 
 /* SUGGESTIONS */
-document.getElementById("desc").onfocus = () => {
-  descHelp.innerText = "Ex: Développeur motivé avec projets modernes.";
-};
-document.getElementById("desc").onblur = () => {
-  descHelp.innerText = "";
-};
+desc.onfocus=()=>descHelp.innerText="Décris ton profil pro...";
+desc.onblur=()=>descHelp.innerText="";
 
-document.getElementById("skills").onfocus = () => {
-  skillsHelp.innerText = "Ex: HTML, CSS, JavaScript";
-};
-document.getElementById("skills").onblur = () => {
-  skillsHelp.innerText = "";
-};
+skills.onfocus=()=>skillsHelp.innerText="Sépare par virgules";
+skills.onblur=()=>skillsHelp.innerText="";

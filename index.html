@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Builder Pro+</title>
+<title>CV Builder Ultimate</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -11,50 +11,37 @@
 <body>
 
 <div class="container">
-  <h1>🚀 CV Builder Pro+</h1>
+  <h1>🚀 CV Builder Ultimate</h1>
 
-  <input id="name" placeholder="👤 Nom">
-  <input id="job" placeholder="💼 Métier">
-  <input id="email" placeholder="📧 Email">
-  <input id="phone" placeholder="📱 Téléphone">
+  <input id="name" placeholder="Nom">
+  <input id="job" placeholder="Métier">
 
-  <!-- THEME -->
-  <select id="theme" onchange="changeTheme()">
-    <option value="blue">Bleu</option>
-    <option value="purple">Violet</option>
-    <option value="green">Vert</option>
-    <option value="red">Rouge</option>
-    <option value="orange">Orange</option>
-    <option value="teal">Turquoise</option>
-    <option value="pink">Rose</option>
-    <option value="dark">Noir</option>
-    <option value="cyan">Cyan</option>
-    <option value="gold">Gold</option>
+  <button onclick="autoFill()">⚡ Auto remplir</button>
+
+  <input id="email" placeholder="Email">
+  <input id="phone" placeholder="Téléphone">
+
+  <select id="template" onchange="changeTemplate()">
+    <option value="classic">Classique</option>
+    <option value="modern">Moderne</option>
+    <option value="minimal">Minimal</option>
   </select>
 
-  <!-- PDF STYLE -->
-  <select id="pdfStyle">
-    <option value="normal">Normal</option>
-    <option value="premium">Premium</option>
-    <option value="linkedin">LinkedIn</option>
-  </select>
-
-  <textarea id="desc" placeholder="🧠 Profil"></textarea>
+  <textarea id="desc" placeholder="Profil"></textarea>
   <small id="descHelp"></small>
 
-  <input id="skills" placeholder="⭐ Compétences (HTML, CSS...)">
+  <input id="skills" placeholder="Compétences (HTML, CSS, JS)">
   <small id="skillsHelp"></small>
 
-  <input id="exp" placeholder="📂 Expérience">
+  <input id="exp" placeholder="Expérience">
   <input type="file" id="photo">
 
-  <button onclick="generate()">✨ Générer</button>
-  <button onclick="downloadPDF()">📄 Télécharger PDF</button>
+  <button onclick="generate()">Générer</button>
+  <button onclick="downloadPDF()">PDF</button>
 
-  <!-- CV -->
-  <div id="cv" class="cv blue">
+  <div id="cv" class="cv classic">
 
-    <div class="left-col">
+    <div class="left">
       <img id="pimage" src="https://via.placeholder.com/100">
       <h2 id="pname">Nom</h2>
       <p id="pjob"></p>
@@ -62,17 +49,15 @@
       <p>📱 <span id="pphone"></span></p>
     </div>
 
-    <div class="right-col">
-
-      <h3>🧠 Profil</h3>
+    <div class="right">
+      <h3>Profil</h3>
       <p id="pdesc"></p>
 
-      <h3>📂 Expérience</h3>
+      <h3>Expérience</h3>
       <p id="pexp"></p>
 
-      <h3>⭐ Compétences</h3>
+      <h3>Compétences</h3>
       <div id="pskills"></div>
-
     </div>
 
   </div>
