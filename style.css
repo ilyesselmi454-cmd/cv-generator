@@ -1,4 +1,3 @@
-/* FONT MODERNE */
 body {
   font-family: 'Poppins', sans-serif;
   background: #eef2f7;
@@ -34,7 +33,7 @@ button {
   cursor: pointer;
 }
 
-/* CV STRUCTURE */
+/* CV */
 .cv {
   display: flex;
   width: 210mm;
@@ -42,62 +41,56 @@ button {
   background: white;
   border-radius: 15px;
   overflow: hidden;
-
-  /* animation sur la feuille */
   animation: slideUp 0.6s ease;
 }
 
-/* COLONNE GAUCHE */
+/* LEFT */
 .left-col {
   width: 35%;
   padding: 20px;
   color: white;
 }
 
-/* COLONNE DROITE */
-.right-col {
-  width: 65%;
-  padding: 25px;
-}
-
-/* IMAGE */
 .left-col img {
   width: 80px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
 
-/* TITRES */
-h2 {
-  margin: 5px 0;
+/* RIGHT */
+.right-col {
+  width: 65%;
+  padding: 25px;
 }
 
+/* TITLES */
 h3 {
   margin-top: 20px;
   border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
 }
 
 /* SKILLS */
 .skill {
-  margin: 5px 0;
-  padding: 5px;
+  display: inline-block;
+  margin: 5px;
+  padding: 6px 10px;
   border-radius: 6px;
-  background: rgba(255,255,255,0.2);
+  background: #eee;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
-/* THEMES COULEUR */
-.blue .left-col {
-  background: linear-gradient(#6c8cff,#4a6cff);
-}
-
-.purple .left-col {
-  background: linear-gradient(#a66cff,#7a4aff);
-}
-
-.green .left-col {
-  background: linear-gradient(#2ecc71,#27ae60);
-}
+/* THEMES */
+.blue .left-col { background: linear-gradient(#6c8cff,#4a6cff); }
+.purple .left-col { background: linear-gradient(#a66cff,#7a4aff); }
+.green .left-col { background: linear-gradient(#2ecc71,#27ae60); }
+.red .left-col { background: linear-gradient(#ff6b6b,#e63946); }
+.orange .left-col { background: linear-gradient(#ff9f43,#ff6f00); }
+.teal .left-col { background: linear-gradient(#1dd1a1,#10ac84); }
+.pink .left-col { background: linear-gradient(#ff6bcb,#e84393); }
+.dark .left-col { background: linear-gradient(#2f3640,#000000); }
+.cyan .left-col { background: linear-gradient(#00d2ff,#3a7bd5); }
+.gold .left-col { background: linear-gradient(#f6d365,#fda085); }
 
 /* ANIMATION */
 @keyframes slideUp {
@@ -109,9 +102,4 @@ h3 {
     transform: translateY(0);
     opacity: 1;
   }
-}function changeTheme(){
-  let cv = document.getElementById("cv");
-  let theme = document.getElementById("theme").value;
-
-  cv.className = "cv " + theme;
 }

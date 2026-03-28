@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>CV Builder Modern</title>
+<title>CV Builder Pro</title>
 
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -23,12 +23,19 @@
     <option value="blue">Bleu</option>
     <option value="purple">Violet</option>
     <option value="green">Vert</option>
+    <option value="red">Rouge</option>
+    <option value="orange">Orange</option>
+    <option value="teal">Turquoise</option>
+    <option value="pink">Rose</option>
+    <option value="dark">Noir</option>
+    <option value="cyan">Cyan</option>
+    <option value="gold">Gold</option>
   </select>
 
   <textarea id="desc" placeholder="🧠 Profil"></textarea>
   <small id="descHelp"></small>
 
-  <input id="skills" placeholder="⭐ Compétences">
+  <input id="skills" placeholder="⭐ Compétences (séparées par ,)">
   <small id="skillsHelp"></small>
 
   <input id="exp" placeholder="📂 Expérience">
@@ -38,29 +45,33 @@
   <button onclick="downloadPDF()">📄 PDF</button>
 
   <!-- CV -->
-<div id="cv" class="cv blue">
+  <div id="cv" class="cv blue">
 
-  <!-- LEFT -->
-  <div class="left-col">
-    <img id="pimage" src="https://via.placeholder.com/100">
+    <!-- LEFT -->
+    <div class="left-col">
+      <img id="pimage" src="https://via.placeholder.com/100">
 
-    <h2 id="pname">Nom</h2>
-    <p id="pjob"></p>
+      <h2 id="pname">Nom</h2>
+      <p id="pjob"></p>
 
-    <p>📧 <span id="pemail"></span></p>
-    <p>📱 <span id="pphone"></span></p>
+      <p>📧 <span id="pemail"></span></p>
+      <p>📱 <span id="pphone"></span></p>
+    </div>
 
-    <h3>Compétences</h3>
-    <div id="pskills"></div>
-  </div>
+    <!-- RIGHT -->
+    <div class="right-col">
 
-  <!-- RIGHT -->
-  <div class="right-col">
-    <h3>Profil</h3>
-    <p id="pdesc"></p>
+      <h3>🧠 Profil</h3>
+      <p id="pdesc"></p>
 
-    <h3>Expérience</h3>
-    <p id="pexp"></p>
+      <h3>📂 Expérience</h3>
+      <p id="pexp"></p>
+
+      <h3>⭐ Compétences</h3>
+      <div id="pskills"></div>
+
+    </div>
+
   </div>
 
 </div>

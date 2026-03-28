@@ -45,7 +45,7 @@ function changeTheme(){
 function downloadPDF(){
   html2pdf().set({
     margin:5,
-    filename:'cv-modern.pdf',
+    filename:'cv-pro.pdf',
     html2canvas:{scale:3},
     jsPDF:{unit:'mm',format:'a4'}
   }).from(document.getElementById("cv")).save();
@@ -53,7 +53,7 @@ function downloadPDF(){
 
 /* SUGGESTIONS */
 document.getElementById("desc").onfocus = () => {
-  descHelp.innerText = "Ex: Développeur créatif et motivé...";
+  descHelp.innerText = "Ex: Développeur motivé avec projets modernes.";
 };
 document.getElementById("desc").onblur = () => {
   descHelp.innerText = "";
