@@ -1,49 +1,62 @@
 body {
   font-family: Arial;
-  background: #1e3c72;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
 }
 
+/* CONTAINER */
 .container {
-  width: 400px;
+  width: 420px;
   margin: auto;
   background: white;
   padding: 20px;
+  border-radius: 10px;
 }
 
+/* INPUT */
 input, textarea, select {
   width: 100%;
-  margin: 5px 0;
+  margin: 6px 0;
   padding: 10px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 
+/* BUTTON */
 button {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 6px;
   padding: 10px;
-  background: orange;
+  background: #ff7b00;
   color: white;
   border: none;
+  border-radius: 6px;
 }
 
+/* CV */
 .cv {
   width: 210mm;
   min-height: 297mm;
-  border: 2px solid #ddd;
+  background: white;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /* HEADER */
 .header {
   display: flex;
+  align-items: center;
   gap: 15px;
   padding: 20px;
-  border-bottom: 3px solid orange;
+  color: white;
 }
 
 .header img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
+  border: 3px solid white;
 }
 
 /* CONTENT */
@@ -51,36 +64,45 @@ button {
   display: flex;
 }
 
+/* LEFT */
 .left {
-  width: 60%;
+  width: 65%;
   padding: 20px;
 }
 
+/* RIGHT */
 .right {
-  width: 40%;
+  width: 35%;
   padding: 20px;
-  border-left: 2px dashed #ccc;
+  background: #f4f4f4;
+  border-left: 2px dashed #ddd;
+}
+
+/* TITLES */
+h3 {
+  border-left: 4px solid #ff7b00;
+  padding-left: 8px;
 }
 
 /* SKILLS */
 .skill {
-  border: 1px solid #ddd;
-  margin: 5px 0;
-  padding: 5px;
+  margin: 10px 0;
 }
 
 .skill-bar {
   height: 6px;
   background: #ddd;
+  border-radius: 5px;
 }
 
 .skill-fill {
   height: 6px;
-  background: orange;
+  background: #ff7b00;
+  border-radius: 5px;
 }
 
 /* THEMES */
-.blue-theme .header { background:#2a5298;color:white; }
-.green-theme .header { background:#27ae60;color:white; }
-.pink-theme .header { background:#e84393;color:white; }
-.dark-theme { background:#222;color:white; }
+.blue { background:#2a5298; }
+.green { background:#27ae60; }
+.pink { background:#e84393; }
+.dark { background:#222; }

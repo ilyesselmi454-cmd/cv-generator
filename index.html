@@ -15,7 +15,6 @@
 
   <input type="text" id="name" placeholder="Nom">
   <input type="text" id="job" placeholder="Métier">
-
   <input type="text" id="email" placeholder="Email">
   <input type="text" id="phone" placeholder="Téléphone">
 
@@ -25,14 +24,8 @@
   </select>
 
   <textarea id="desc" placeholder="Profil"></textarea>
-  <small id="descHelp"></small>
-
   <input type="text" id="skills" placeholder="Compétences (HTML,CSS...)">
-  <small id="skillsHelp"></small>
-
   <input type="text" id="exp" placeholder="Expérience">
-  <small id="expHelp"></small>
-
   <input type="file" id="photo">
 
   <button onclick="generate()">Générer</button>
@@ -43,14 +36,11 @@
 
     <div class="header">
       <img id="pimage" src="https://via.placeholder.com/100">
-
       <div>
         <h1 id="pname"></h1>
         <p id="pjob"></p>
-
-        <p>
-          📧 <span id="pemail"></span><br>
-          📱 <span id="pphone"></span>
+        <p class="contact">
+          📧 <span id="pemail"></span> | 📱 <span id="pphone"></span>
         </p>
       </div>
     </div>
@@ -71,7 +61,6 @@
     </div>
 
   </div>
-
 </div>
 
 <script src="script.js"></script>
